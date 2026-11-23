@@ -4,9 +4,27 @@
 <meta charset="utf-8">
 <link rel="icon" href="../assets/icona.svg" type="image/svg+xml">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Terzo prototipo · Il percorso dello studente</title>
+<title>Terzo prototipo · Il diritto allo studio è effettivo?</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap">
 <link rel="stylesheet" href="../assets/base.css">
+<style>
+.tubo { display: grid; gap: 10px; margin: 16px 0; }
+.tronco, .condotte > div, .foce { border: 1px solid var(--linea); border-radius: 10px; padding: 10px 14px; background: var(--fondo, #fff); }
+.tronco { border-left: 6px solid var(--accento); }
+.condotte { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; }
+.condotte > div { border-top: 4px solid var(--accento); }
+.foce { border-left: 6px solid var(--testo, #222); }
+.tubo b { display: block; }
+.tubo small { color: var(--tenue); }
+.freccia { text-align: center; color: var(--tenue); font-size: 1.2rem; line-height: 1; }
+.comp { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px; margin: 12px 0; padding: 0; list-style: none; }
+.comp li { border: 1px solid var(--linea); border-radius: 10px; padding: 10px 12px; }
+.comp b { display: block; }
+table.fasi { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+table.fasi th, table.fasi td { text-align: left; vertical-align: top; padding: 8px 6px; border-bottom: 1px solid var(--linea); }
+.tab { overflow-x: auto; }
+.st { font-weight: 700; white-space: nowrap; }
+</style>
 </head>
 <body>
 <div class="pagina">
@@ -18,21 +36,91 @@
     <a href="index.html" aria-current="page">Terzo prototipo · Il percorso dello studente</a>
   </nav>
   <span class="etichetta">Terzo e quarto livello di indagine · Effetti e scenari</span>
-  <h1>Terzo prototipo. Il percorso dello studente fino all'appello</h1>
-  <p class="sottotitolo">Una simulazione a stock e flussi: quanti studenti arrivano all'esame con le misure dell'art. 16, e in tempo.</p>
+  <h1>Terzo prototipo. Il diritto allo studio è effettivo?</h1>
+  <p class="sottotitolo">Uno studente universitario si ammala. La legge gli riconosce delle tutele: quante arrivano davvero, e in tempo?</p>
 </header>
 
-<section aria-labelledby="t-stato">
+<section aria-labelledby="t-tubo">
   <span class="statuto simulato">In costruzione</span>
-  <h2 id="t-stato">La domanda</h2>
-  <p class="tesi">Il diritto alla prova adattata arriva allo studente <b>in tempo</b> per l'appello? Con quale probabilità, e dove si ferma?</p>
-  <p>Il percorso attraversa più fasi: informazione, domanda di accertamento, visita, richiesta all'ateneo, intesa con il docente. Ogni fase aggiunge un'attesa e una probabilità di fermarsi. La simulazione confronta profili-tipo e scenari con meccanismi di recupero, per esempio un soggetto che decide se il docente non risponde.</p>
-  <h3>Che cosa serve per iniziare</h3>
-  <ul>
-    <li>La scheda metodologica, con la fonte di ogni fase.</li>
-    <li>I parametri ricavati dalle interviste, come intervalli: sono raccolte con un questionario anonimo.</li>
+  <h2 id="t-tubo">Un tronco comune, più condotte, una carriera.</h2>
+  <p class="tesi">Prima di ogni tutela servono <b>informazione</b> e <b>riconoscimento</b>. Poi il percorso si divide: ogni tutela ha le sue condizioni e i suoi tempi.</p>
+  <div class="tubo" aria-label="Schema del modello: non rappresenta dati">
+    <div class="tronco"><b>Tronco comune</b>sapere a cosa si ha diritto → certificato del medico → accertamento → documentazione all'ateneo<br><small>Se qui il flusso tarda, tarda ovunque.</small></div>
+    <div class="freccia" aria-hidden="true">↓</div>
+    <div class="condotte">
+      <div><b>Lezioni</b><small>seguire anche nei periodi di cura</small></div>
+      <div><b>Esami</b><small>misure dell'art. 16, in tempo per l'appello</small></div>
+      <div><b>Benefici</b><small>borsa, esonero tasse, alloggio</small></div>
+    </div>
+    <div class="freccia" aria-hidden="true">↓</div>
+    <div class="foce"><b>La carriera</b><small>sessioni, anni, eventuale abbandono</small></div>
+  </div>
+  <p class="nota">Schema esplicativo del modello. Non mostra misure.</p>
+</section>
+
+<section aria-labelledby="t-comp">
+  <h2 id="t-comp">"Effettivo" si osserva in cinque modi, senza un voto unico.</h2>
+  <ul class="comp">
+    <li><b>Seguire le lezioni</b>lezioni accessibili nei periodi di cura</li>
+    <li><b>Essere valutati in modo adeguato</b>esami con le misure arrivate in tempo</li>
+    <li><b>Non perdere tempo</b>sessioni perse, mesi o anni fuori corso</li>
+    <li><b>Non perdere i benefici</b>borsa, esonero, alloggio mantenuti</li>
+    <li><b>Quanto costa</b>tempo, energie e denaro spesi per ottenere ciò che spetta</li>
   </ul>
-  <p class="nota"><b>Numeri ipotetici.</b> Quando la simulazione sarà pubblicata, sarà un esperimento illustrativo, non calibrato né validato.</p>
+  <p>Le cinque misure restano affiancate. Uno studente può avere tutti gli esami con le misure e perdere comunque la borsa: è proprio questa <b>effettività parziale</b> che il prototipo vuole rendere visibile.</p>
+
+  <details>
+    <summary>Le fasi del percorso e le loro fonti</summary>
+    <p class="nota">[F] fonte documentata · [P] ipotesi del modello · [V] da verificare. Caso: Università degli Studi del Sannio.</p>
+    <div class="tab">
+    <table class="fasi">
+      <thead><tr><th>Fase</th><th>Che cosa dicono le fonti</th><th>Stato</th></tr></thead>
+      <tbody>
+        <tr><td>Sapere a cosa si ha diritto</td><td>Nessuna norma obbliga a informare lo studente d'ufficio. I servizi dell'ateneo forniscono informazioni a chi le chiede (Linee guida CNUDD 2024, § 3.2, p. 10).</td><td class="st">[F] · [P] tempi</td></tr>
+        <tr><td>Certificato del medico</td><td>Il medico compila il certificato introduttivo. Per la corsia rapida deve indicare la patologia oncologica o ematologica e la legge 80/2006, con una casella da barrare (AIL, FAQ Diritti e agevolazioni, p. 1). Nelle sperimentazioni del certificato oncologico introduttivo telematico, il tempo medio tra diagnosi e domanda è sceso da 121 a 67 giorni (Adnkronos, 13 gennaio 2022, rassegna stampa Agenas-INPS, p. 2).</td><td class="st">[F]</td></tr>
+        <tr><td>Accertamento</td><td>Artt. 3-4 l. 104/1992. Per i pazienti oncologici l'accertamento si fa entro 15 giorni dalla domanda (art. 6, c. 3-bis, l. 80/2006). Secondo AIL l'accertamento provvisorio produce effetti solo per i permessi lavorativi e il congedo (FAQ, p. 12): per lo studio, quindi, servirebbe il verbale definitivo.</td><td class="st">[F] · [V] provvisorio sulla norma</td></tr>
+        <tr><td>Documentazione all'ateneo</td><td>Basta la certificazione l. 104/1992 oppure l'invalidità civile l. 118/1971. Senza certificazione, una "condizione medica invalidante" può essere considerata con documentazione recente di un ente pubblico (Guida Unisannio, pp. 6-7; CNUDD, p. 11 nota 8 e p. 22). Per questa seconda via l'ateneo non ha obblighi (CNUDD, p. 21).</td><td class="st">[F]</td></tr>
+        <tr><td>Attivazione dei servizi</td><td>Caricare i documenti su Esse3 "non costituisce formale attivazione del procedimento". Servono un colloquio, una scheda con le misure, il passaggio al Dipartimento. I servizi si erogano solo su richiesta. Nessun termine indicato (Guida Unisannio, p. 7).</td><td class="st">[F] · [P] tempi</td></tr>
+        <tr><td>Intesa con il docente</td><td>Le misure all'esame richiedono la "previa intesa con il docente della materia" (art. 16, c. 5). Lo studente le presenta "con congruo anticipo"; il docente valuta se sono idonee agli obiettivi del corso (CNUDD, § 4.4, p. 15).</td><td class="st">[F] · [P] tempi e quote</td></tr>
+        <tr><td>Se il docente non risponde</td><td>Il docente delegato del rettore coordina e media tra studenti e docenti (art. 16, c. 5-bis; CNUDD, p. 10; Guida Unisannio, p. 8). Nessuna fonte gli attribuisce il potere di decidere al posto del docente.</td><td class="st">[F] mediazione · [P] subentro</td></tr>
+        <tr><td>Lezioni a distanza</td><td>Le linee guida CNUDD auspicano la partecipazione da remoto solo per casi "particolarmente complessi" (p. 14). La Guida Unisannio cita il D.M. 1835/2024 sull'offerta formativa a distanza (p. 19).</td><td class="st">[F] · [V] D.M. 1835/2024</td></tr>
+        <tr><td>Benefici economici</td><td>Per esoneri e riduzioni delle tasse possono bastare i titoli di disabilità o invalidità (Guida Unisannio, p. 7). Quadro: d.lgs. 68/2012 sul diritto allo studio (Guida Unisannio, p. 19).</td><td class="st">[F] · [V] d.lgs. 68/2012</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </details>
+
+  <details>
+    <summary>Che cosa dicono le prime interviste</summary>
+    <p>Tre questionari: un'autointervista e due risposte ricevute (due casi oncologici con cure concluse, un caso di disabilità motoria dalla nascita), tutti all'università.</p>
+    <ul>
+      <li>In tutti e tre i casi il percorso si è fermato per più di 3 mesi. Due volte si è chiuso con una rinuncia, una volta si è sbloccato perché "è intervenuto qualcuno".</li>
+      <li>Misure d'esame arrivate in tempo: 3 esami su 6 nei due questionari che riportano il numero.</li>
+      <li>Lezioni a distanza chieste in due casi: una risposta mai arrivata, una dopo 1-4 settimane.</li>
+      <li>Tutela percepita: 2, 2 e 3 su 5.</li>
+    </ul>
+    <p class="nota">Sono tre casi, di persone vicine all'autrice. Servono a costruire profili-tipo e intervalli per i parametri, non a stimare quanto spesso accade.</p>
+  </details>
+
+  <details>
+    <summary>Limiti</summary>
+    <ul>
+      <li>I tempi e le probabilità della simulazione saranno ipotesi esplicite, ricavate come intervalli dalle interviste e dalle fonti. L'esperimento è illustrativo, non calibrato né validato.</li>
+      <li>Le fasi descrivono un ateneo, il Sannio. Altri atenei possono organizzare il percorso in modo diverso.</li>
+      <li>Le notizie di stampa sul certificato oncologico riportano esiti di sperimentazioni locali, non dati nazionali.</li>
+    </ul>
+  </details>
+</section>
+
+<section aria-labelledby="t-fonti">
+  <h2 id="t-fonti">Fonti</h2>
+  <ul class="nota">
+    <li>Legge 5 febbraio 1992, n. 104, art. 16, testo vigente al 22 novembre 2026, Normattiva.</li>
+    <li>Conferenza Nazionale Universitaria dei Delegati per la Disabilità, <i>Linee guida CNUDD</i>, approvate il 25 settembre 2024.</li>
+    <li>Università degli Studi del Sannio, U.O. Diritto allo Studio, <i>Guida dei servizi a favore della disabilità e DSA</i>.</li>
+    <li>AIL, <i>FAQ Diritti e agevolazioni</i>.</li>
+    <li>Agenas, <i>Buone pratiche per i diritti dei pazienti oncologici. Il certificato introduttivo</i>, rassegna stampa agenzie, 13 gennaio 2022.</li>
+  </ul>
 </section>
 </div>
 </body>
