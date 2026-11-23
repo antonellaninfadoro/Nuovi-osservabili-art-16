@@ -7,6 +7,36 @@
 <title>Secondo prototipo · Le relazioni</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap">
 <link rel="stylesheet" href="../assets/base.css">
+<style>
+.rete-box { border: 1px solid var(--linea); border-radius: 12px; padding: 8px; overflow-x: auto; max-width: 100%; min-width: 0; }
+section, .tab, section > *, details > * { min-width: 0; max-width: 100%; }
+.rete-box svg { width: 100%; min-width: 720px; height: auto; display: block; }
+.nodo rect { fill: #fff; stroke: #8a95a0; stroke-width: 1; }
+.nodo.a16 rect { stroke: #1f5f99; stroke-width: 1.6; }
+.nodo.a13 rect { stroke: #2b7a6b; stroke-width: 1.4; }
+.nodo.mod rect { stroke: #6b4fa0; }
+.nodo.perc rect { stroke: #a06a1f; }
+.nodo.na rect { stroke-dasharray: 4 3; }
+.nodo text { font: 600 13px "Nunito Sans", system-ui, sans-serif; fill: #1b2426; }
+.nodo { cursor: pointer; }
+.nodo.spento, .arco.spento { opacity: .15; }
+.arco { fill: none; stroke-width: 1.8; }
+.arco.rinvio { stroke: #1f5f99; }
+.arco.modifica { stroke: #6b4fa0; stroke-dasharray: 7 4; }
+.arco.percorso { stroke: #a06a1f; stroke-dasharray: 2 4; stroke-width: 2.2; }
+.col-tit { font: 700 12px "Nunito Sans", system-ui, sans-serif; fill: #4d5a5d; letter-spacing: .04em; }
+.leg { display: flex; flex-wrap: wrap; gap: 14px; font-size: .9rem; margin: 10px 0 0; }
+.leg span { display: inline-flex; align-items: center; gap: 6px; }
+.leg i { display: inline-block; width: 28px; border-top: 2px solid; }
+.filtri { display: flex; flex-wrap: wrap; gap: 14px; margin: 8px 0; font-size: .92rem; }
+.conti { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; margin: 14px 0; }
+.conti div { border: 1px solid var(--linea); border-radius: 10px; padding: 10px 12px; }
+.conti b { display: block; font-size: 1.8rem; line-height: 1.1; }
+table.t { width: 100%; border-collapse: collapse; font-size: .88rem; }
+table.t th, table.t td { text-align: left; vertical-align: top; padding: 7px 6px; border-bottom: 1px solid var(--linea); }
+table.t td.n, table.t th.n { text-align: right; font-variant-numeric: tabular-nums; }
+.tab { overflow-x: auto; }
+</style>
 </head>
 <body>
 <div class="pagina">
@@ -19,20 +49,142 @@
   </nav>
   <span class="etichetta">Secondo livello di indagine · Il corpus</span>
   <h1>Secondo prototipo. La rete delle norme da cui dipende l'art. 16</h1>
-  <p class="sottotitolo">Dove sta l'art. 16 nel sistema delle norme che lo rendono applicabile.</p>
+  <p class="sottotitolo">Per sostenere un esame con le misure dell'art. 16 non basta l'art. 16: servono altre disposizioni, che la rete rende visibili.</p>
 </header>
 
-<section aria-labelledby="t-stato">
-  <span class="statuto progetto">In costruzione</span>
-  <h2 id="t-stato">La domanda</h2>
-  <p class="tesi">Da quali altre norme dipende il diritto a una prova d'esame adattata?</p>
-  <p>I nodi saranno disposizioni, gli archi i rinvii. Il corpus parte dai rinvii che il primo prototipo riconosce nel testo dell'art. 16 e dalle sue note di aggiornamento su Normattiva. Nessun collegamento entra nella rete senza essere stato estratto da un testo e controllato.</p>
-  <h3>Che cosa serve per iniziare</h3>
-  <ul>
-    <li>Il primo prototipo completato sull'art. 16, con l'elenco dei rinvii.</li>
-    <li>I testi degli atti richiamati, copiati da Normattiva alla stessa data di vigenza.</li>
-  </ul>
+<section aria-labelledby="t-rete">
+  <span class="statuto progetto">v0.1 · dimostrazione di fattibilità</span>
+  <h2 id="t-rete">L'art. 16 e l'art. 13 si richiamano a vicenda; il percorso passa per l'accertamento.</h2>
+  <p class="tesi">Tre tipi di collegamento, tenuti distinti: <b>rinvii scritti</b> nel testo, <b>modifiche</b> nel tempo, <b>passaggi del percorso</b> ricostruiti a mano.</p>
+  <div class="filtri" role="group" aria-label="Tipi di collegamento da mostrare">
+    <label><input type="checkbox" data-tipo="rinvio" checked> Rinvii espliciti</label>
+    <label><input type="checkbox" data-tipo="modifica" checked> Modifiche</label>
+    <label><input type="checkbox" data-tipo="percorso" checked> Percorso dello studente</label>
+  </div>
+  <div class="rete-box"><svg id="rete" viewBox="0 0 1060 580" role="img" aria-label="Rete delle disposizioni collegate all'art. 16 della legge 104/1992"></svg></div>
+  <div class="leg">
+    <span><i style="border-color:#1f5f99"></i> rinvio esplicito (verificato sul testo)</span>
+    <span><i style="border-color:#6b4fa0;border-top-style:dashed"></i> modifica (Normattiva)</span>
+    <span><i style="border-color:#a06a1f;border-top-style:dotted;border-top-width:3px"></i> percorso (ricostruzione [P])</span>
+    <span>bordo tratteggiato = testo non ancora acquisito</span>
+  </div>
+  <p class="nota">Clicca un nodo per vedere solo i suoi collegamenti; clicca di nuovo per tornare alla rete intera. La freccia va da chi cita, modifica o rende possibile verso la disposizione richiamata, modificata o resa accessibile.</p>
+  <div class="conti" id="conti"></div>
+</section>
+
+<section aria-labelledby="t-gradi">
+  <h2 id="t-gradi">Chi rinvia e chi è richiamato</h2>
+  <p class="tesi">Contati solo i <b>rinvii espliciti</b>: gli altri collegamenti non sono scritti nel testo.</p>
+  <div class="tab"><table class="t" id="gradi"></table></div>
+  <p class="nota">Il grado dice quanti collegamenti scritti entrano o escono da una disposizione nel corpus scelto. Non misura l'importanza della norma né la qualità del testo.</p>
+</section>
+
+<section aria-labelledby="t-archi">
+  <h2 id="t-archi">L'elenco dei collegamenti</h2>
+  <details open><summary>Tutti i collegamenti, con la loro fonte</summary>
+  <div class="tab"><table class="t" id="archi"></table></div>
+  </details>
+</section>
+
+<section aria-labelledby="t-scheda">
+  <h2 id="t-scheda">Come è costruita la rete</h2>
+  <details><summary>Scheda metodologica</summary>
+  <dl class="scheda">
+    <dt>Domanda</dt><dd>Da quali disposizioni dipendono le misure d'esame dell'art. 16, e quali atti le hanno modificate?</dd>
+    <dt>Unità di analisi</dt><dd>La disposizione (comma o lettera). Quando il testo non è ancora stato acquisito, l'articolo o l'atto (bordo tratteggiato).</dd>
+    <dt>Nodi</dt><dd>I commi dell'art. 16; l'art. 13, comma 6-bis e comma 1, lettera b); gli artt. 3 e 4 della legge 104/1992; gli atti che modificano l'art. 16 e quelli che intervengono nel percorso dello studente.</dd>
+    <dt>Archi</dt><dd><b>Rinvio</b>: riferimento esplicito nel testo vigente [F]. <b>Modifica</b>: un atto sostituisce, aggiunge o modifica una disposizione, secondo Normattiva [F]. <b>Percorso</b>: una norma è condizione o via d'accesso per un'altra nel percorso dello studente; è una ricostruzione manuale su fonti documentali [P].</dd>
+    <dt>Fonte</dt><dd>[F] Nessi normativi espliciti: Fameli, Mercatali, Ragona, Tiscornia 2014, § 11.3.3, p. 220. [F] Riconoscimento automatico dei riferimenti come legimatica analitica: Mercatali 2011, pp. 46-47. [F] Modifiche: pannello "Aggiornamenti all'articolo" di Normattiva e testo della L. 17/1999. [P] Archi del percorso: Linee guida CNUDD 2024; Guida Unisannio ai servizi per disabilità e DSA; AIL, FAQ Diritti e agevolazioni.</dd>
+    <dt>Procedura</dt><dd>I rinvii sono riconosciuti dal primo prototipo sui testi salvati e riletti a mano. Un test controlla che gli archi "rinvio" della rete coincidano con i rinvii estratti dai testi, dentro il perimetro.</dd>
+    <dt>Perimetro</dt><dd>Testi vigenti al 22 novembre 2026. Restano fuori gli altri rinvii dell'art. 13 (cinque atti e l'art. 42) e quelli dell'art. 3: riguardano la scuola o altre tutele, non le misure d'esame all'università.</dd>
+    <dt>Limiti</dt><dd>La rete descrive il corpus scelto, non il sistema giuridico. Il numero di collegamenti non misura qualità né complessità della legge. Gli archi del percorso sono interpretazioni, da sottoporre al relatore. I testi della L. 17/1999, della L. 80/2006 e della L. 118/1971 sono ancora da acquisire.</dd>
+    <dt>Verifica</dt><dd>Test automatico (relazioni/test/test-rete.js): 9 rinvii dichiarati = 9 rinvii estratti; ogni arco ha tipo, stato, evidenza e fonte.</dd>
+  </dl>
+  </details>
 </section>
 </div>
+<script src="dati/rete.js"></script>
+<script>
+(function () {
+  var R = window.RETE, NS = 'http://www.w3.org/2000/svg', svg = document.getElementById('rete');
+  var NA = { 'l17': 1, 'l295': 1, 'l80': 1, 'l118': 1, 'dl44': 1, 'l74': 1 };
+  var COL = { rinvio: '#1f5f99', modifica: '#6b4fa0', percorso: '#a06a1f' };
+  var W = 190, H = 36, attivi = { rinvio: true, modifica: true, percorso: true }, scelto = null;
+  function el(t, a, testo) { var e = document.createElementNS(NS, t); for (var k in a) e.setAttribute(k, a[k]); if (testo) e.textContent = testo; return e; }
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  var nodo = {}; R.nodi.forEach(function (n) { nodo[n.id] = n; });
+
+  var defs = el('defs', {});
+  Object.keys(COL).forEach(function (t) {
+    var m = el('marker', { id: 'fr-' + t, viewBox: '0 0 10 10', refX: 9, refY: 5, markerWidth: 7, markerHeight: 7, orient: 'auto-start-reverse' });
+    m.appendChild(el('path', { d: 'M1 1L9 5L1 9z', fill: COL[t] })); defs.appendChild(m);
+  });
+  svg.appendChild(defs);
+  [['Percorso dello studente', 160], ['Art. 16', 430], ['Art. 13', 680], ['Modifiche', 930]].forEach(function (c) {
+    svg.appendChild(el('text', { x: c[1], y: 24, 'text-anchor': 'middle', class: 'col-tit' }, c[0].toUpperCase()));
+  });
+
+  var gArchi = el('g', {}), gNodi = el('g', {});
+  svg.appendChild(gArchi); svg.appendChild(gNodi);
+  var corsie = {};
+  var archiEl = R.archi.map(function (e) {
+    var a = nodo[e.da], b = nodo[e.a], d;
+    if (a.x === b.x) { // stessa colonna: arco curvo all'esterno della colonna
+      var lato = a.gruppo === 'mod' ? 1 : -1, x0 = a.x + lato * W / 2, off = 30 + Math.abs(a.y - b.y) * 0.15;
+      d = 'M' + x0 + ' ' + a.y + ' C' + (x0 + lato * off) + ' ' + a.y + ' ' + (x0 + lato * off) + ' ' + b.y + ' ' + (x0 + lato * 2) + ' ' + b.y;
+    } else { // percorso ortogonale: corsia nello spazio fra le colonne, accanto all'origine
+      var dir = b.x > a.x ? 1 : -1, x1 = a.x + dir * W / 2, x2 = b.x - dir * W / 2;
+      var base = a.x + dir * (W / 2 + 30), k = (corsie[base] = (corsie[base] || 0) + 1) - 1, lane = base + dir * k * 7;
+      var y2 = b.y + (k % 2 ? 6 : -6) * Math.ceil(k / 2) * 0.6;
+      d = 'M' + x1 + ' ' + a.y + ' H' + lane + ' V' + y2 + ' H' + x2;
+    }
+    var path = el('path', { d: d, class: 'arco ' + e.tipo, 'marker-end': 'url(#fr-' + e.tipo + ')' });
+    path.appendChild(el('title', {}, e.tipo + ': ' + a.etichetta + ' → ' + b.etichetta + ' · ' + e.evidenza));
+    gArchi.appendChild(path); return { e: e, el: path };
+  });
+  var nodiEl = R.nodi.map(function (n) {
+    var g = el('g', { class: 'nodo ' + n.gruppo + (NA[n.id] ? ' na' : ''), tabindex: 0, role: 'button', 'aria-label': n.etichetta });
+    g.appendChild(el('rect', { x: n.x - W / 2, y: n.y - H / 2, width: W, height: H, rx: 8 }));
+    g.appendChild(el('text', { x: n.x, y: n.y + 4.5, 'text-anchor': 'middle' }, n.etichetta));
+    function sel() { scelto = scelto === n.id ? null : n.id; aggiorna(); }
+    g.addEventListener('click', sel); g.addEventListener('keydown', function (ev) { if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); sel(); } });
+    gNodi.appendChild(g); return { n: n, el: g };
+  });
+  function aggiorna() {
+    var vicini = {};
+    archiEl.forEach(function (x) {
+      var vis = attivi[x.e.tipo] && (!scelto || x.e.da === scelto || x.e.a === scelto);
+      x.el.style.display = attivi[x.e.tipo] ? '' : 'none';
+      x.el.classList.toggle('spento', !vis);
+      if (vis && scelto) { vicini[x.e.da] = 1; vicini[x.e.a] = 1; }
+    });
+    nodiEl.forEach(function (x) { x.el.classList.toggle('spento', !!scelto && !vicini[x.n.id] && x.n.id !== scelto); });
+  }
+  document.querySelectorAll('[data-tipo]').forEach(function (c) { c.addEventListener('change', function () { attivi[c.dataset.tipo] = c.checked; aggiorna(); }); });
+
+  // conteggi
+  var per = { rinvio: 0, modifica: 0, percorso: 0 }; R.archi.forEach(function (e) { per[e.tipo]++; });
+  document.getElementById('conti').innerHTML =
+    '<div><b>' + R.nodi.length + '</b>disposizioni e atti</div>' +
+    '<div><b>' + per.rinvio + '</b>rinvii espliciti</div>' +
+    '<div><b>' + per.modifica + '</b>modifiche</div>' +
+    '<div><b>' + per.percorso + '</b>passaggi del percorso [P]</div>';
+
+  // gradi sui soli rinvii espliciti
+  var g = {}; R.nodi.forEach(function (n) { g[n.id] = { ent: 0, usc: 0 }; });
+  R.archi.filter(function (e) { return e.tipo === 'rinvio'; }).forEach(function (e) { g[e.da].usc++; g[e.a].ent++; });
+  var righe = R.nodi.filter(function (n) { return g[n.id].ent || g[n.id].usc; })
+    .sort(function (a, b) { return (g[b.id].ent + g[b.id].usc) - (g[a.id].ent + g[a.id].usc); })
+    .map(function (n) { return '<tr><th>' + esc(n.etichetta) + '</th><td class="n">' + g[n.id].usc + '</td><td class="n">' + g[n.id].ent + '</td></tr>'; });
+  document.getElementById('gradi').innerHTML = '<thead><tr><th>Disposizione</th><th class="n">Rinvii in uscita</th><th class="n">Rinvii in entrata</th></tr></thead><tbody>' + righe.join('') + '</tbody>';
+
+  // elenco degli archi
+  var NOMI = { rinvio: 'rinvio', modifica: 'modifica', percorso: 'percorso [P]' };
+  document.getElementById('archi').innerHTML = '<thead><tr><th>Da</th><th>A</th><th>Tipo</th><th>Che cosa dice</th><th>Fonte</th><th>Stato</th></tr></thead><tbody>' +
+    R.archi.map(function (e) {
+      return '<tr><td>' + esc(nodo[e.da].etichetta) + '</td><td>' + esc(nodo[e.a].etichetta) + '</td><td style="color:' + COL[e.tipo] + ';font-weight:700">' + NOMI[e.tipo] + '</td><td>' + esc(e.evidenza) + '</td><td>' + esc(e.fonte) + '</td><td>' + esc(e.stato) + '</td></tr>';
+    }).join('') + '</tbody>';
+})();
+</script>
 </body>
 </html>
