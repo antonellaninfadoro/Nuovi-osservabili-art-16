@@ -193,13 +193,27 @@
       }
       catene.push({ a: p.a, b: p.b, parti: [p.tipo], chiusa: p.tipo !== 'partizione' });
     });
-    return catene.map(function (c) {
+    var out = catene.map(function (c) {
       var tipo = c.parti.indexOf('atto') !== -1 ? 'esterno'
         : c.parti.indexOf('anafora') !== -1 ? 'esterno-anaforico'
         : c.parti.indexOf('se') !== -1 ? 'interno' : 'interno-presunto';
       return { a: c.a, b: c.b, testo: t.slice(c.a, c.b), tipo: tipo };
     });
+    // ADATTAMENTO (23/11/2026): elenchi di leggi al plurale, "leggi 11 maggio 1976, n. 360, e 4 agosto 1977, n. 517".
+    // Ogni elemento diventa un rinvio esterno; il testo restituito ripete "legge" perché estremiAtto lo riconosca.
+    var m, re = RE_LEGGI_ELENCO; re.lastIndex = 0;
+    while ((m = re.exec(t))) {
+      var r2 = new RegExp(DATA_N, 'g'), e;
+      while ((e = r2.exec(m[0]))) {
+        var a2 = m.index + e.index, b2 = a2 + e[0].length;
+        if (out.some(function (x) { return a2 < x.b && b2 > x.a; })) continue;
+        out.push({ a: a2, b: b2, testo: 'legge ' + e[0], tipo: 'esterno' });
+      }
+    }
+    return out.sort(function (x, y) { return x.a - y.a; });
   }
+  var DATA_N = '\\d{1,2}°?\\s+[a-zA-Z]+\\s+\\d{4},?\\s+n\\.\\s*\\d+';
+  var RE_LEGGI_ELENCO = new RegExp('\\bleggi\\s+' + DATA_N + '(?:,?\\s+(?:e|ed)\\s+' + DATA_N + ')+', 'gi');
 
   /* ---------- A5. Riferimenti con "precedente", "successivo", "seguente" ---------- */
   var PAR = '(?:comm[ai]|articol[oi]|letter[ae]|periodo|periodi)';

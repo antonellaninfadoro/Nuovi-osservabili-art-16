@@ -218,7 +218,8 @@
     }
     if (R.altriArticoli.length) {
       out.push({ n: String(R.altriArticoli.length), cosa: R.altriArticoli.length === 1 ? 'rinvio a un altro articolo' : 'rinvii ad altri articoli', tipo: 'misura · D1', fig: 'fig-3',
-        testo: lista(R.altriArticoli.map(function (x) { return 'Il comma ' + x.da + ' rinvia all\'' + x.testo; })) + ' della stessa legge.' + (r.articolo === '16' ? ' È il servizio di tutorato da cui passano le misure per gli esami universitari: il ponte verso il secondo prototipo.' : '') });
+        testo: lista(R.altriArticoli.map(function (x) { return 'Il comma ' + x.da + ' rinvia all\'' + x.testo; })) + ' della stessa legge.' + (r.articolo === '16' ? ' È il servizio di tutorato da cui passano le misure per gli esami universitari: il ponte verso il secondo prototipo.' +
+          (archivio['13'] && archivio['13'].relazioni.altriArticoli.some(function (x) { return /articolo 16/.test(x.testo); }) ? ' L\'art. 13, comma 6-bis, rinvia a sua volta ai commi 5 e 5-bis dell\'art. 16: il collegamento va nei due sensi.' : '') : '') });
       if (!R.atti.length) $('t-fig3').textContent = 'Per applicare il comma 5 serve un altro articolo';
     }
     $('fig-3').hidden = !(R.atti.length || R.altriArticoli.length);
@@ -279,7 +280,8 @@
   var ELENCO = [
     { art: '16', nome: 'art. 16', file: 'dati/l104-art16-vigente.txt', ruolo: 'Valutazione del rendimento e prove d\'esame: l\'articolo di partenza.' },
     { art: '3', nome: 'art. 3', file: 'dati/l104-art3-vigente.txt', ruolo: 'Soggetti aventi diritto: definisce chi è persona con disabilità ai fini della legge.' },
-    { art: '4', nome: 'art. 4', file: 'dati/l104-art4-vigente.txt', ruolo: 'Accertamento: il riconoscimento da cui dipendono le tutele dell\'art. 16.' }
+    { art: '4', nome: 'art. 4', file: 'dati/l104-art4-vigente.txt', ruolo: 'Accertamento: il riconoscimento da cui dipendono le tutele dell\'art. 16.' },
+    { art: '13', nome: 'art. 13', file: 'dati/l104-art13-vigente.txt', ruolo: 'Integrazione scolastica: il comma 6-bis istituisce il tutorato richiamato dall\'art. 16, comma 5.' }
   ];
   var archivio = {};
   function caricaArchivio(fatto) {

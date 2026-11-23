@@ -74,6 +74,15 @@ verifica('art. 16: rinvio ad altro articolo della legge', art16.relazioni.altriA
 verifica('art. 16: nessun atto esterno', art16.relazioni.atti.length, 0);
 verifica('art. 16: comma marcato (( )) da Normattiva', art16.commi.filter(function (c) { return c.modificato; }).map(function (c) { return c.numero; }), ['5-bis']);
 verifica('art. 16: regola 4a da verificare a mano', art16.regolarita.filter(function (e) { return e.regola === '4a'; })[0].esito, 'da verificare');
+verifica('elenco di leggi al plurale', tipi('quanto previsto dalle leggi 11 maggio 1976, n. 360, e 4 agosto 1977, n. 517, e successive'),
+  ['esterno:legge 11 maggio 1976, n. 360', 'esterno:legge 4 agosto 1977, n. 517']);
+// Art. 13 (testo inviato da Antonella il 23/11/2026): rinvii riletti a mano
+var art13 = A.analizza(fs.readFileSync(path.join(__dirname, '..', 'dati', 'l104-art13-vigente.txt'), 'utf8'));
+verifica('art. 13: commi', art13.commi.map(function (c) { return c.numero; }), ['1', '2', '3', '4', '5', '6', '6-bis']);
+verifica('art. 13: atti esterni', art13.relazioni.atti.map(function (a) { return a.etichetta + ' [' + a.commi.join(',') + ']'; }),
+  ['l. 360/1976 [1]', 'l. 517/1977 [1]', 'l. 142/1990 [1]', 'd.P.R. 419/1974 [1]', 'd.P.R. 616/1977 [3]']);
+verifica('art. 13: rinvio di ritorno all\'art. 16', art13.relazioni.altriArticoli.map(function (x) { return x.da + ': ' + x.testo; }),
+  ['4: articolo 42, comma 6, lettera h)', '6-bis: commi 5 e 5-bis dell\'articolo 16']);
 verifica('sequenza commi irregolare', A.regolarita(A.analizza('Art. 1\n(X).\n1. Uno.\n3. Tre.\n')).filter(function (e) { return e.regola === '10b'; })[0].esito, 'scostamento');
 verifica('"e/o" segnalato', A.regolarita(A.analizza('Art. 1\n(X).\n1. Il padre e/o la madre.\n')).filter(function (e) { return e.regola === '4f'; })[0].esito, 'scostamento');
 
