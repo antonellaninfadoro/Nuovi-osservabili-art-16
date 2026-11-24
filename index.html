@@ -9,6 +9,29 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap">
 <link rel="stylesheet" href="assets/base.css">
 <link rel="stylesheet" href="assets/percorso.css">
+<style>
+.flusso { display: grid; grid-template-columns: 1fr 48px 1fr 48px 1fr; align-items: stretch; gap: 6px; margin: 18px 0 4px; }
+.fl { position: relative; border-radius: 12px; padding: 16px 16px 14px; display: grid; gap: 6px; align-content: start; }
+.fl b { font-size: 1.05rem; line-height: 1.3; }
+.fl span { color: var(--tenue); font-size: .95rem; line-height: 1.45; }
+.fl-n { position: absolute; top: -12px; left: 14px; width: 24px; height: 24px; border-radius: 50%; display: grid; place-items: center; font-weight: 700; font-size: .8rem !important; color: #fff !important; }
+.fl-1 { background: var(--fondo-disp); border: 1px solid var(--liv-disp); border-style: dashed; }
+.fl-1 .fl-n { background: var(--segno-disp); }
+.fl-2 { background: var(--fondo-corp); border: 1px solid var(--liv-corp); }
+.fl-2 .fl-n { background: var(--segno-corp); }
+.fl-3 { background: var(--fondo-sim); border: 1px solid var(--liv-sim); }
+.fl-3 .fl-n { background: var(--segno-sim); }
+.fl-pr { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
+.fl-pr a { font-size: .82rem; font-weight: 700; padding: 2px 10px; border-radius: 99px; background: #fff; border: 1px solid var(--liv-corp); color: var(--segno-corp); text-decoration: none; }
+.fl-pr a:hover, .fl-pr a:focus-visible { background: var(--segno-corp); color: #fff; }
+.fl-freccia { display: grid; place-items: center; }
+.fl-freccia svg { width: 44px; height: 20px; fill: none; stroke: var(--tenue); stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+.sito .storia { border-left: 4px solid var(--segno-sim); padding: 4px 0 4px 16px; margin-top: 10px; }
+@media (max-width: 720px) {
+  .flusso { grid-template-columns: 1fr; gap: 14px; }
+  .fl-freccia svg { transform: rotate(90deg); }
+}
+</style>
 </head>
 <body>
 <div class="pagina">
@@ -30,12 +53,36 @@
   <p class="nota">Tesi di laurea · Università degli Studi del Sannio · A.A. 2025/2026 · Antonella Ninfadoro · relatore prof. Nicola Lettieri</p>
 </header>
 
-<section class="inbreve" aria-labelledby="t-perche">
+<section class="inbreve sito" aria-labelledby="t-perche">
   <span class="etichetta">Perché questo sito</span>
-  <h2 id="t-perche">Questo sito è la parte applicata della mia tesi: mostra in pratica ciò che la tesi spiega in teoria.</h2>
-  <p>L'ho costruito insieme al mio relatore, il prof. Nicola Lettieri. Nella tesi propongo un modo di osservare il diritto. Qui quel modo viene messo alla prova su un caso concreto.</p>
-  <p>In pochi anni le tecnologie dell'informazione hanno reso osservabili aspetti della vita sociale che prima sfuggivano a qualsiasi misura. Per questo parlo di <b>nuovi osservabili</b>. I fenomeni sono quelli di sempre: cambia il modo di guardarli. La <b>computazione</b> permette di visualizzarli e misurarli. Questo vale anche per i <b>fenomeni giuridici</b>, che sono il centro della tesi.</p>
-  <p>La scelta del caso nasce dalla mia storia. Ho affrontato gli studi universitari durante una malattia onco-ematologica, e so quanto sia difficile far valere un diritto mentre ci si cura. Il mio relatore è stato tra i pochi a dare importanza al mio percorso, con grande umanità: mi ha aperto la strada, l'ha resa più semplice e mi ha permesso di sostenere l'esame a distanza. Il sito osserva proprio questa distanza: tra la tutela che la legge promette e quella che uno studente riesce davvero a ottenere.</p>
+  <h2 id="t-perche">Il sito</h2>
+  <p>Ho costruito questo sito con il mio relatore, <b>Nicola Lettieri</b>, per rendere più facili da vedere e da capire aspetti della realtà sociale, e in particolare di quella <b>giuridica</b>, che è difficile mettere a fuoco.</p>
+  <p>Il sito permette di visualizzare e spiegare ciò che ho definito nella parte teorica della tesi, dove propongo <b>modi diversi di leggere il diritto</b>.</p>
+  <p>La <b>computazione</b> permette di misurare e analizzare aspetti dei fenomeni sociali che, senza questi strumenti, resterebbero forse nascosti, o richiederebbero tempi lunghissimi per essere studiati.</p>
+
+  <div class="flusso" role="img" aria-label="Schema: un fenomeno poco visibile, attraverso gli strumenti computazionali, diventa un nuovo osservabile. Lo schema non rappresenta dati.">
+    <div class="fl fl-1">
+      <span class="fl-n">1</span>
+      <b>Un fenomeno poco visibile</b>
+      <span>Quanta parte della tutela promessa dalla legge arriva davvero allo studente?</span>
+    </div>
+    <div class="fl-freccia" aria-hidden="true"><svg viewBox="0 0 60 24"><path d="M2 12H52" /><path d="M44 4L54 12L44 20" /></svg></div>
+    <div class="fl fl-2">
+      <span class="fl-n">2</span>
+      <b>Gli strumenti computazionali</b>
+      <span>analizzano il testo, collegano le norme, simulano il percorso</span>
+      <span class="fl-pr"><a href="testo/index.html">testo</a><a href="relazioni/index.html">rete</a><a href="effetti/index.html">percorso</a></span>
+    </div>
+    <div class="fl-freccia" aria-hidden="true"><svg viewBox="0 0 60 24"><path d="M2 12H52" /><path d="M44 4L54 12L44 20" /></svg></div>
+    <div class="fl fl-3">
+      <span class="fl-n">3</span>
+      <b>Un nuovo osservabile</b>
+      <span>qualcosa che si vede, si misura, si confronta</span>
+    </div>
+  </div>
+  <p class="nota">Teoria nei capitoli della tesi, applicazione in queste pagine.</p>
+
+  <p class="storia">La scelta del caso nasce dalla mia storia. Ho affrontato gli studi universitari durante una malattia onco-ematologica, e so quanto sia difficile far valere un diritto mentre ci si cura. Il mio relatore è stato tra i pochi a dare importanza al mio percorso, con grande umanità: mi ha aperto la strada, me l'ha resa più semplice e mi ha permesso di sostenere l'esame a distanza. Il sito osserva proprio questa distanza: quella tra la tutela che la legge promette e quella che uno studente riesce davvero a ottenere.</p>
 </section>
 
 <section class="inbreve" aria-labelledby="t-inbreve">
