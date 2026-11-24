@@ -31,6 +31,33 @@
   .flusso { grid-template-columns: 1fr; gap: 14px; }
   .fl-freccia svg { transform: rotate(90deg); }
 }
+.ventaglio { display: grid; grid-template-columns: minmax(170px, 1fr) 2fr; gap: 12px 22px; align-items: center; margin: 18px 0 6px; }
+.vt-radice { grid-row: span 2; background: var(--inchiostro); color: #fff; border-radius: 12px; padding: 16px; display: grid; gap: 4px; position: relative; }
+.vt-radice span { font-size: .88rem; opacity: .85; }
+.vt-radice::after { content: ""; position: absolute; right: -22px; top: 50%; width: 22px; border-top: 2px solid var(--tenue); }
+.vt-forme { list-style: none; margin: 0; padding: 0 0 0 16px; border-left: 2px solid var(--tenue); display: grid; gap: 8px; }
+.vt-forme li { position: relative; background: var(--tinta); border-radius: 8px; padding: 8px 12px; font-weight: 600; }
+.vt-forme li::before { content: ""; position: absolute; left: -18px; top: 50%; width: 16px; border-top: 2px solid var(--tenue); }
+.vt-forme small { display: block; font-weight: 400; color: var(--tenue); font-size: .85rem; }
+.vt-forme li.fuoco { background: var(--fondo-sim); border: 2px solid var(--segno-sim); }
+.vt-parallela { grid-column: 2; border: 2px dashed var(--linea); border-radius: 8px; padding: 8px 12px; display: grid; gap: 2px; }
+.vt-parallela span { color: var(--tenue); font-size: .9rem; }
+.vt-tit { margin: 22px 0 4px; }
+.vie { display: grid; gap: 10px; margin: 12px 0 6px; }
+.via { display: grid; grid-template-columns: minmax(130px, 1fr) minmax(150px, 1.3fr) 30px minmax(180px, 2fr); align-items: center; gap: 10px; border-radius: 10px; padding: 12px 14px; }
+.via span { color: var(--tenue); font-size: .92rem; }
+.via i { font-style: normal; font-size: 1.4rem; text-align: center; }
+.via .esito { color: var(--inchiostro); font-weight: 700; }
+.via.si { background: var(--fondo-corp); border: 2px solid var(--segno-corp); }
+.via.no { background: #fff; border: 2px dashed var(--segnala); }
+@media (max-width: 720px) {
+  .ventaglio { grid-template-columns: 1fr; }
+  .vt-radice { grid-row: auto; }
+  .vt-radice::after { display: none; }
+  .vt-parallela { grid-column: 1; }
+  .via { grid-template-columns: 1fr; gap: 4px; }
+  .via i { transform: rotate(90deg); text-align: left; }
+}
 </style>
 </head>
 <body>
@@ -87,13 +114,29 @@
 
 <section class="inbreve" aria-labelledby="t-inbreve">
   <span class="etichetta">In breve</span>
-  <h2 id="t-inbreve">Il diritto allo studio arriva davvero allo studente che si ammala?</h2>
-  <p class="ib-lead">La legge 104/1992 riconosce agli studenti con disabilità <b>prove d'esame adattate</b>: tempi più lunghi, ausili, prove equipollenti (<b>art. 16</b>). All'università queste misure passano per un'<b>intesa con il docente</b> (art. 16, comma 5). Prima ancora servono un <b>accertamento</b> sanitario, una domanda all'ateneo, una risposta in tempo per l'appello. Il sito osserva che cosa succede lungo questo percorso a uno studente con <b>disabilità motoria</b>, con <b>malattia onco-ematologica</b> o con un'altra forma di <b>invalidità</b>.</p>
-  <div class="transizione" aria-label="Dal caso particolare al caso generale">
-    <span class="tr-1">Caso particolare<small>studente onco-ematologico</small></span>
-    <span class="tr-2">Caso più ampio<small>studente con disabilità</small></span>
-    <span class="tr-3">Caso generale<small>il diritto allo studio</small></span>
+  <h2 id="t-inbreve">Il diritto allo studio arriva davvero allo studente con disabilità?</h2>
+  <p class="ib-lead">Per la legge 104/1992 è persona con disabilità chi ha una <b>minorazione fisica, psichica o sensoriale, stabilizzata o progressiva</b> (art. 3). A tutti questi studenti l'<b>art. 16</b> riconosce prove d'esame adattate: tempi più lunghi, ausili, prove equipollenti; all'università, previa <b>intesa con il docente</b>.</p>
+
+  <div class="ventaglio" aria-label="Le forme di disabilità tutelate dalla legge 104 e la tutela parallela dei DSA">
+    <div class="vt-radice"><b>Persona con disabilità</b><span>art. 3, legge 104/1992</span></div>
+    <ul class="vt-forme">
+      <li>disabilità motoria</li>
+      <li>disabilità sensoriale<small>studenti ciechi o sordi</small></li>
+      <li class="fuoco">malattia onco-ematologica<small>e altre malattie croniche o invalidanti</small></li>
+      <li>disturbi del neurosviluppo</li>
+      <li>disabilità psichica</li>
+    </ul>
+    <div class="vt-parallela"><b>Tutela parallela</b><span>studenti con DSA, come la dislessia: legge 170/2010</span></div>
   </div>
+  <p class="nota">Tipologie dalla Guida Unisannio ai servizi per disabilità e DSA, p. 4; DSA: Linee guida Sapienza per i docenti, 2019, sezione II.</p>
+
+  <h3 class="vt-tit">Il fuoco: lo studente con disabilità e lo studente onco-ematologico</h3>
+  <p>Lo studente in cura per una malattia onco-ematologica è tutelato <b>solo passando per la via della disabilità</b>: deve essere riconosciuto disabile o invalido dopo l'<b>accertamento</b> sanitario, con l'INPS. Nelle fonti esaminate non compare una tutela per lo studio pensata per lui.</p>
+  <div class="vie" aria-label="Le due strade dello studente onco-ematologico">
+    <div class="via si"><b>Con il verbale</b><span>legge 104 o invalidità civile</span><i aria-hidden="true">→</i><span class="esito">le misure dell'art. 16 sono un diritto</span></div>
+    <div class="via no"><b>Senza il verbale</b><span>"condizione medica invalidante"</span><i aria-hidden="true">→</i><span class="esito">l'ateneo può tenerne conto, ma non è obbligato</span></div>
+  </div>
+  <p class="nota">Linee guida CNUDD 2024, pp. 11 (nota 8), 21-22; Guida Unisannio, pp. 6-7. <span class="verifica">"Nessuna tutela specifica" vale per le fonti esaminate: da verificare sulla normativa.</span></p>
   <ol class="percorso-tesi" aria-label="I capitoli della tesi">
     <li><span class="pt-cap">Cap. I</span><b>Le scienze sociali computazionali</b><p>La computazione estende ciò che si può osservare.</p></li>
     <li><span class="pt-cap">Cap. II</span><b>L'empirismo giuridico computazionale</b><p>Il diritto è anche relazioni, comportamenti, effetti.</p></li>

@@ -31,6 +31,33 @@
   .flusso { grid-template-columns: 1fr; gap: 14px; }
   .fl-freccia svg { transform: rotate(90deg); }
 }
+.ventaglio { display: grid; grid-template-columns: minmax(170px, 1fr) 2fr; gap: 12px 22px; align-items: center; margin: 18px 0 6px; }
+.vt-radice { grid-row: span 2; background: var(--inchiostro); color: #fff; border-radius: 12px; padding: 16px; display: grid; gap: 4px; position: relative; }
+.vt-radice span { font-size: .88rem; opacity: .85; }
+.vt-radice::after { content: ""; position: absolute; right: -22px; top: 50%; width: 22px; border-top: 2px solid var(--tenue); }
+.vt-forme { list-style: none; margin: 0; padding: 0 0 0 16px; border-left: 2px solid var(--tenue); display: grid; gap: 8px; }
+.vt-forme li { position: relative; background: var(--tinta); border-radius: 8px; padding: 8px 12px; font-weight: 600; }
+.vt-forme li::before { content: ""; position: absolute; left: -18px; top: 50%; width: 16px; border-top: 2px solid var(--tenue); }
+.vt-forme small { display: block; font-weight: 400; color: var(--tenue); font-size: .85rem; }
+.vt-forme li.fuoco { background: var(--fondo-sim); border: 2px solid var(--segno-sim); }
+.vt-parallela { grid-column: 2; border: 2px dashed var(--linea); border-radius: 8px; padding: 8px 12px; display: grid; gap: 2px; }
+.vt-parallela span { color: var(--tenue); font-size: .9rem; }
+.vt-tit { margin: 22px 0 4px; }
+.vie { display: grid; gap: 10px; margin: 12px 0 6px; }
+.via { display: grid; grid-template-columns: minmax(130px, 1fr) minmax(150px, 1.3fr) 30px minmax(180px, 2fr); align-items: center; gap: 10px; border-radius: 10px; padding: 12px 14px; }
+.via span { color: var(--tenue); font-size: .92rem; }
+.via i { font-style: normal; font-size: 1.4rem; text-align: center; }
+.via .esito { color: var(--inchiostro); font-weight: 700; }
+.via.si { background: var(--fondo-corp); border: 2px solid var(--segno-corp); }
+.via.no { background: #fff; border: 2px dashed var(--segnala); }
+@media (max-width: 720px) {
+  .ventaglio { grid-template-columns: 1fr; }
+  .vt-radice { grid-row: auto; }
+  .vt-radice::after { display: none; }
+  .vt-parallela { grid-column: 1; }
+  .via { grid-template-columns: 1fr; gap: 4px; }
+  .via i { transform: rotate(90deg); text-align: left; }
+}
 </style>
 </head>
 <body>
@@ -88,13 +115,29 @@
 
 <section class="inbreve" aria-labelledby="t-inbreve">
   <span class="etichetta">In brief</span>
-  <h2 id="t-inbreve">Does the right to education actually reach a student who falls ill?</h2>
-  <p class="ib-lead">Italian Law 104/1992 grants students with disabilities <b>adapted examinations</b>: extra time, aids, equivalent tests (<b>art. 16</b>). At university these measures require an <b>agreement with the lecturer</b> (art. 16, paragraph 5). Before that, a medical <b>assessment</b>, a request to the university and a reply in time for the exam session are needed. The site observes what happens along this path to a student with a <b>motor disability</b>, with <b>haematological cancer</b> or with another form of <b>disability</b>.</p>
-  <div class="transizione" aria-label="From the particular case to the general case">
-    <span class="tr-1">Particular case<small>student with haematological cancer</small></span>
-    <span class="tr-2">Wider case<small>student with disabilities</small></span>
-    <span class="tr-3">General case<small>the right to education</small></span>
+  <h2 id="t-inbreve">Does the right to education actually reach students with disabilities?</h2>
+  <p class="ib-lead">Under Italian Law 104/1992, a person with a disability is someone with a <b>physical, mental or sensory impairment, stable or progressive</b> (art. 3). For all these students, <b>art. 16</b> grants adapted examinations: extra time, aids, equivalent tests; at university, subject to an <b>agreement with the lecturer</b>.</p>
+
+  <div class="ventaglio" aria-label="The forms of disability protected by Law 104 and the parallel protection for specific learning disorders">
+    <div class="vt-radice"><b>Person with a disability</b><span>art. 3, Law 104/1992</span></div>
+    <ul class="vt-forme">
+      <li>motor disability</li>
+      <li>sensory disability<small>blind or deaf students</small></li>
+      <li class="fuoco">haematological cancer<small>and other chronic or disabling illnesses</small></li>
+      <li>neurodevelopmental disorders</li>
+      <li>mental disability</li>
+    </ul>
+    <div class="vt-parallela"><b>Parallel protection</b><span>students with specific learning disorders, such as dyslexia: Law 170/2010</span></div>
   </div>
+  <p class="nota">Categories from the University of Sannio guide to disability and SLD services, p. 4; specific learning disorders: Sapienza guidelines for lecturers, 2019, section II.</p>
+
+  <h3 class="vt-tit">The focus: students with disabilities and students with haematological cancer</h3>
+  <p>A student being treated for haematological cancer is protected <b>only through the disability route</b>: they must be recognised as disabled or as having a civil disability after a medical <b>assessment</b> involving INPS, the national social security institute. The sources examined contain no study protection designed for them.</p>
+  <div class="vie" aria-label="The two routes of a student with haematological cancer">
+    <div class="via si"><b>With the certificate</b><span>Law 104 or civil disability</span><i aria-hidden="true">→</i><span class="esito">the measures of art. 16 are a right</span></div>
+    <div class="via no"><b>Without the certificate</b><span>"disabling medical condition"</span><i aria-hidden="true">→</i><span class="esito">the university may take it into account, but is not obliged to</span></div>
+  </div>
+  <p class="nota">CNUDD guidelines 2024, pp. 11 (note 8), 21-22; University of Sannio guide, pp. 6-7. <span class="verifica">"No specific protection" holds for the sources examined: to be verified against the legislation.</span></p>
   <ol class="percorso-tesi" aria-label="The chapters of the thesis">
     <li><span class="pt-cap">Ch. I</span><b>Computational social science</b><p>Computation extends what can be observed.</p></li>
     <li><span class="pt-cap">Ch. II</span><b>Computational legal empiricism</b><p>Law is also relations, behaviour, effects.</p></li>
