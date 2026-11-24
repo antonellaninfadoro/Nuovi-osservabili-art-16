@@ -42,6 +42,7 @@
     <a class="n1" href="testo/index.html">Primo prototipo · La disposizione</a>
     <a class="n2" href="relazioni/index.html">Secondo prototipo · Le relazioni</a>
     <a class="n3" href="effetti/index.html">Terzo prototipo · Il percorso dello studente</a>
+    <a class="lingua" href="en/index.html" lang="en">English</a>
   </nav>
   <span class="etichetta">I nuovi osservabili: un framework per la costruzione computazionale di osservabili giuridici</span>
   <figure class="emblema">
@@ -54,7 +55,6 @@
 </header>
 
 <section class="inbreve sito" aria-labelledby="t-perche">
-  <span class="etichetta">Perché questo sito</span>
   <h2 id="t-perche">Il sito</h2>
   <p>Ho costruito questo sito con il mio relatore, <b>Nicola Lettieri</b>, per rendere più facili da vedere e da capire aspetti della realtà sociale, e in particolare di quella <b>giuridica</b>, che è difficile mettere a fuoco.</p>
   <p>Il sito permette di visualizzare e spiegare ciò che ho definito nella parte teorica della tesi, dove propongo <b>modi diversi di leggere il diritto</b>.</p>
@@ -88,7 +88,7 @@
 <section class="inbreve" aria-labelledby="t-inbreve">
   <span class="etichetta">In breve</span>
   <h2 id="t-inbreve">Il diritto allo studio arriva davvero allo studente che si ammala?</h2>
-  <p class="ib-lead">La legge 104/1992 riconosce agli studenti con disabilità <b>prove d'esame adattate</b>: tempi più lunghi, ausili, prove equipollenti (<b>art. 16</b>). All'università queste misure passano per un'<b>intesa con il docente</b> (art. 16, comma 5). Prima ancora servono un <b>accertamento</b> sanitario, una domanda all'ateneo, una risposta in tempo per l'appello. Il sito osserva che cosa succede lungo questo percorso a uno <b>studente in cura oncologica</b>.</p>
+  <p class="ib-lead">La legge 104/1992 riconosce agli studenti con disabilità <b>prove d'esame adattate</b>: tempi più lunghi, ausili, prove equipollenti (<b>art. 16</b>). All'università queste misure passano per un'<b>intesa con il docente</b> (art. 16, comma 5). Prima ancora servono un <b>accertamento</b> sanitario, una domanda all'ateneo, una risposta in tempo per l'appello. Il sito osserva che cosa succede lungo questo percorso a uno studente con <b>disabilità motoria</b>, con <b>malattia onco-ematologica</b> o con un'altra forma di <b>invalidità</b>.</p>
   <div class="transizione" aria-label="Dal caso particolare al caso generale">
     <span class="tr-1">Caso particolare<small>studente onco-ematologico</small></span>
     <span class="tr-2">Caso più ampio<small>studente con disabilità</small></span>
@@ -98,34 +98,167 @@
     <li><span class="pt-cap">Cap. I</span><b>Le scienze sociali computazionali</b><p>La computazione estende ciò che si può osservare.</p></li>
     <li><span class="pt-cap">Cap. II</span><b>L'empirismo giuridico computazionale</b><p>Il diritto è anche relazioni, comportamenti, effetti.</p></li>
     <li><span class="pt-cap">Cap. III</span><b>Le qualità della regolazione</b><p>Quattro livelli di indagine, dalla bellezza alla giustizia.</p></li>
-    <li class="qui"><span class="pt-cap">Cap. IV · questo sito</span><b>Il framework applicato</b><p>Tre prototipi sull'art. 16, in costruzione.</p></li>
+    <li class="qui"><span class="pt-cap">Cap. IV · questo sito</span><b>Il framework applicato</b><p>Tre prototipi sull'art. 16, da usare e controllare.</p></li>
   </ol>
 </section>
 
+<section class="percorso" aria-label="Il framework, livello per livello">
+  <div class="scena" aria-hidden="true">
+    <svg id="scena" viewBox="0 0 400 420">
+      <g class="liv" data-liv="1" transform="translate(20,20)">
+        <rect class="fondo f-disp" width="170" height="170" rx="6"/>
+        <line class="tratto" x1="28" y1="42" x2="142" y2="42"/><line class="tratto lieve" x1="28" y1="62" x2="110" y2="62"/>
+        <line class="tratto" x1="40" y1="88" x2="146" y2="88"/><line class="tratto" x1="40" y1="108" x2="132" y2="108"/>
+        <line class="tratto lieve" x1="28" y1="130" x2="128" y2="130"/><line class="tratto" x1="28" y1="150" x2="100" y2="150"/>
+        <text class="num" x="150" y="160">1</text>
+      </g>
+      <g class="liv" data-liv="2" transform="translate(210,20)">
+        <rect class="fondo f-corp" width="170" height="170" rx="6"/>
+        <g class="rete">
+          <line x1="85" y1="85" x2="40" y2="50"/><line x1="85" y1="85" x2="130" y2="40"/><line x1="85" y1="85" x2="140" y2="110"/>
+          <line x1="85" y1="85" x2="45" y2="125"/><line x1="40" y1="50" x2="130" y2="40"/><line x1="45" y1="125" x2="95" y2="145"/><line x1="140" y1="110" x2="95" y2="145"/>
+          <circle cx="85" cy="85" r="11"/><circle cx="40" cy="50" r="7"/><circle cx="130" cy="40" r="7"/><circle cx="140" cy="110" r="7"/><circle cx="45" cy="125" r="7"/><circle cx="95" cy="145" r="7"/>
+        </g>
+        <text class="num" x="150" y="160">2</text>
+      </g>
+      <g class="liv" data-liv="3" transform="translate(20,230)">
+        <rect class="fondo f-eff" width="170" height="170" rx="6"/>
+        <g class="barre"><rect x="30" y="95" width="18" height="50"/><rect x="56" y="70" width="18" height="75"/><rect x="82" y="80" width="18" height="65"/><rect x="108" y="50" width="18" height="95"/></g>
+        <line class="tratto" x1="22" y1="146" x2="140" y2="146"/>
+        <text class="num" x="150" y="160">3</text>
+      </g>
+      <g class="liv" data-liv="4" transform="translate(210,230)">
+        <rect class="fondo f-sim" width="170" height="170" rx="6"/>
+        <g class="rami"><path d="M30 85 C80 85 90 40 140 40"/><path d="M30 85 L140 85"/><path d="M30 85 C80 85 90 130 140 130"/>
+          <circle cx="30" cy="85" r="8"/><circle cx="140" cy="40" r="6"/><circle cx="140" cy="85" r="6"/><circle cx="140" cy="130" r="6"/></g>
+        <text class="num" x="150" y="160">4</text>
+      </g>
+      <path class="freccia" d="M192 105 H208"/><path class="freccia" d="M295 192 C295 212 105 208 105 228"/><path class="freccia" d="M192 315 H208"/>
+    </svg>
+  </div>
+
+  <div class="passi">
+    <article class="passo" data-passo="0">
+      <span class="etichetta">Il punto di partenza</span>
+      <h2>Una legge promette una tutela. Possiamo osservare se la mantiene?</h2>
+      <p class="tesi">Il framework osserva la <b>distanza</b> fra ciò che il diritto <b>riconosce</b> e ciò che le persone riescono a <b>ottenere</b>.</p>
+      <ol class="catena" aria-label="I quattro elementi del framework">
+        <li><b>Oggetto</b><span>giuridico</span></li>
+        <li><b>Domanda</b><span>conoscitiva</span></li>
+        <li><b>Operazione</b><span>dall'oggetto ai dati</span></li>
+        <li><b>Tecnica</b><span>rende visibile una proprietà</span></li>
+      </ol>
+      <details class="altro">
+        <summary>Approfondisci</summary>
+        <p>L'art. 3, comma 2, della Costituzione chiede di rimuovere gli ostacoli che limitano "di fatto" l'uguaglianza: lo sguardo passa dal testo della norma alla vita delle persone. La Convenzione ONU sui diritti delle persone con disabilità (art. 24) parla di "effettiva istruzione". Il framework non è un metodo unico. Ogni tecnica entra in gioco dopo una domanda precisa.</p>
+      </details>
+    </article>
+
+    <article class="passo" data-passo="1">
+      <span class="etichetta l1">Livello 1 · La disposizione</span>
+      <h2>Prima si legge il testo, con strumenti che contano e riconoscono</h2>
+      <p class="tesi">Si <b>misura</b> il testo: leggibilità, struttura, rinvii, terminologia, regolarità formale.</p>
+      <div class="cifre l1">
+        <div><b>39,0</b><span>indice Gulpease dell'art. 16: testo difficile anche per chi ha un diploma</span></div>
+        <div><b>4</b><span>modi diversi di designare chi è tutelato: alunni, allievo, studenti handicappati, studenti</span></div>
+      </div>
+      <details class="altro">
+        <summary>Approfondisci</summary>
+        <p>I periodi hanno in media 40,8 parole; il più lungo, 75 parole, è nel comma 5-bis. Il comma 4 parla di "alunni" anche per gli esami universitari, il comma 5 di "studenti": la rilettura della terminologia è manuale ed è un giudizio interpretativo.</p>
+      </details>
+      <a class="vai" href="testo/index.html">Primo prototipo · La disposizione →</a>
+    </article>
+
+    <article class="passo" data-passo="2">
+      <span class="etichetta l2">Livello 2 · Il corpus</span>
+      <h2>Poi si guarda dove la norma sta, nella rete delle altre norme</h2>
+      <p class="tesi">I <b>rinvii</b> riconosciuti nel testo diventano gli <b>archi</b> di una rete.</p>
+      <div class="cifre l2">
+        <div><b>9</b><span>rinvii espliciti verificati sul testo, fra 16 disposizioni e atti</span></div>
+        <div><b>2</b><span>direzioni del legame fra art. 16 e art. 13, comma 6-bis: si richiamano a vicenda</span></div>
+      </div>
+      <details class="altro">
+        <summary>Approfondisci</summary>
+        <p>Per sostenere un esame con le misure dell'art. 16 servono altre norme: il tutorato dell'art. 13, l'accertamento dell'art. 4, la corsia rapida per i pazienti oncologici. La rete tiene distinti 9 rinvii scritti, 5 modifiche nel tempo (L. 17/1999, D.L. 44/2023) e 4 passaggi del percorso ricostruiti a mano.</p>
+      </details>
+      <a class="vai" href="relazioni/index.html">Secondo prototipo · Le relazioni →</a>
+    </article>
+
+    <article class="passo" data-passo="3">
+      <span class="etichetta l3">Livello 3 · Gli effetti reali</span>
+      <h2>Poi si chiede chi riesce davvero a usare la tutela</h2>
+      <p class="tesi">Si esce dal testo e si ascoltano i <b>destinatari</b>.</p>
+      <div class="cifre l3">
+        <div><b>4 su 9</b><span>esami con le misure arrivate in tempo per l'appello, nei questionari che riportano il numero</span></div>
+        <div class="manca"><b>?</b><span>studenti con i requisiti che non chiedono le misure: il dato che manca</span></div>
+      </div>
+      <details class="altro">
+        <summary>Approfondisci</summary>
+        <p>I primi quattro questionari raccontano percorsi fermi per mesi, rinunce, lezioni a distanza chieste senza risposta. Sono pochi casi, di persone vicine all'autrice: servono a costruire profili e ipotesi, non a stimare quanto spesso accade. All'Università del Sannio caricare i documenti "non costituisce formale attivazione del procedimento" (Guida Unisannio, p. 7).</p>
+      </details>
+    </article>
+
+    <article class="passo" data-passo="4">
+      <span class="etichetta l4">Livello 4 · Gli scenari possibili</span>
+      <h2>Infine si esplora ciò che non si può osservare</h2>
+      <p class="tesi">La <b>simulazione</b> costruisce mondi possibili: altre regole, altri tempi, altra informazione.</p>
+      <ol class="catena l4" aria-label="Passaggi che la simulazione seguirà">
+        <li><b>Sapere</b><span>a cosa si ha diritto</span></li>
+        <li><b>Ottenere</b><span>il riconoscimento</span></li>
+        <li><b>Chiedere</b><span>all'ateneo</span></li>
+        <li><b>Accordarsi</b><span>con il docente</span></li>
+      </ol>
+      <details class="altro">
+        <summary>Approfondisci</summary>
+        <p>La simulazione confronterà profili-tipo e scenari: per esempio un docente delegato che media quando il docente non risponde, o l'informazione data d'ufficio. I risultati dipenderanno dalle ipotesi e andranno letti con l'analisi di sensibilità.</p>
+      </details>
+      <p class="nota stato-liv"><b>In costruzione.</b> Esperimento illustrativo, non calibrato su dati reali.</p>
+      <a class="vai" href="effetti/index.html">Terzo prototipo · Il percorso dello studente →</a>
+    </article>
+
+    <article class="passo" data-passo="5">
+      <span class="etichetta">Dalla bellezza alla giustizia</span>
+      <h2>Ogni livello incorpora i precedenti, e la valutazione cresce con loro</h2>
+      <p class="tesi"><b>Bellezza</b> e <b>giustizia</b> sono i poli di un continuum di valutazione, <b>non punteggi da calcolare</b>.</p>
+      <div class="continuum">
+        <div class="c-poli"><b>Bellezza</b><b>Giustizia</b></div>
+        <div class="c-barra"></div>
+        <div class="c-criteri"><span>Comprensibilità</span><span>Coerenza</span><span>Accessibilità</span><span>Equità</span></div>
+      </div>
+      <details class="altro">
+        <summary>Approfondisci</summary>
+        <p>I primi due livelli informano soprattutto un giudizio sulla qualità formale; il terzo e il quarto un giudizio sugli effetti. I dati non dicono che una legge è giusta. Rendono osservabili conseguenze rilevanti per quel giudizio, che resta affidato a un criterio normativo esplicito.</p>
+      </details>
+    </article>
+  </div>
+</section>
+
 <section aria-labelledby="t-tre">
-  <h2 id="t-tre">I tre prototipi</h2>
-  <p class="tesi">Lo stesso percorso visto a <b>tre livelli</b>: il testo, le norme collegate, gli effetti sulle persone.</p>
+  <h2 id="t-tre">Che cosa è stato fatto, che cosa è emerso</h2>
   <div class="schede-pr">
     <a class="spr disp" href="testo/index.html">
       <span class="statuto misurato">1 · la disposizione</span>
-      <b class="spr-n">Art. 16</b>
-      <p class="spr-d">Struttura, leggibilità e rinvii del testo vigente dell'articolo sulle prove d'esame.</p>
-      <p class="spr-no">v0.1: testo vigente analizzato e controllato a mano.</p>
+      <b class="spr-n">39,0</b>
+      <p class="spr-d">Gulpease dell'art. 16: testo difficile anche per chi ha un diploma. Il periodo più lungo, 75 parole, è nel comma 5-bis.</p>
+      <p><b>Operazioni:</b> commi, periodi, leggibilità, rinvii, lessico, 7 regole di tecnica legislativa; artt. 3, 4 e 13 a confronto.</p>
+      <p class="spr-no">Non dice se la norma sia giusta o se funzioni.</p>
     </a>
     <a class="spr corp" href="relazioni/index.html">
       <span class="statuto progetto">2 · le relazioni</span>
-      <b class="spr-n">La rete</b>
-      <p class="spr-d">Le norme da cui dipende l'art. 16: accertamento, tutorato, corsia rapida per i pazienti oncologici.</p>
-      <p class="spr-no">In costruzione: i collegamenti verranno dai rinvii riconosciuti nel testo.</p>
+      <b class="spr-n">9 · 5 · 4</b>
+      <p class="spr-d">Rinvii scritti, modifiche e passaggi del percorso. L'art. 16 e l'art. 13 si richiamano a vicenda; il percorso passa per l'accertamento.</p>
+      <p><b>Operazioni:</b> rinvii estratti dal testo e verificati con un test, note di Normattiva, percorso ricostruito su fonti documentali.</p>
+      <p class="spr-no">Più collegamenti non vogliono dire una legge peggiore.</p>
     </a>
     <a class="spr eff" href="effetti/index.html">
       <span class="statuto simulato">3 · il percorso dello studente</span>
-      <b class="spr-n">Effettivo?</b>
-      <p class="spr-d">Il percorso dello studente simulato: lezioni, esami, benefici, carriera. Quanto della tutela promessa arriva davvero, e in tempo.</p>
-      <p class="spr-no">In costruzione: parametri da ricavare dalle interviste.</p>
+      <b class="spr-n">4 su 9</b>
+      <p class="spr-d">Esami con le misure arrivate in tempo, nei primi questionari. In tutti i quattro casi il percorso si è fermato a lungo.</p>
+      <p><b>Operazioni:</b> fasi documentate con linee guida e fonti, questionario anonimo, simulazione in costruzione.</p>
+      <p class="spr-no">Quattro casi non dicono quanto spesso accade.</p>
     </a>
   </div>
-  <p class="nota">I prototipi sono dimostrazioni di fattibilità: mostrano che le procedure funzionano su testi e casi reali, senza pretendere di produrre conoscenza empirica validata.</p>
+  <p class="nota">Tutti i prototipi sono dimostrazioni di fattibilità: mostrano che le procedure funzionano sul testo reale, non che producono conoscenza empirica validata. La computazione aggiunge strumenti all'analisi giuridica, senza sostituirla.</p>
 </section>
 
 <section aria-labelledby="t-prec">
@@ -133,7 +266,74 @@
   <p>Il framework è stato applicato prima ai permessi lavorativi dell'<b>art. 33</b> della stessa legge. Quel sito resta consultabile così com'è: <a href="https://antonellaninfadoro.github.io/Nuovi-osservabili-giuridici-/">Costruire osservabili giuridici · l'art. 33</a>.</p>
 </section>
 
-<footer class="nota" style="padding:24px 0">Versione 0.1 · prima pubblicazione, pagine in costruzione.</footer>
+<section class="fonti" id="fonti" aria-labelledby="t-fonti">
+  <h2 id="t-fonti">Fonti</h2>
+  <details class="altro">
+  <summary>Ogni numero del sito rinvia a una di queste fonti</summary>
+  <div class="fonti-gruppi">
+    <div>
+      <h3>Testi normativi</h3>
+      <ul>
+        <li>Legge 5 febbraio 1992, n. 104, artt. 13 e 16, testo vigente da <a href="https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1992-02-05;104!vig" target="_blank" rel="noopener">Normattiva</a>, consultato il 22 novembre 2026; artt. 3 e 4 vigenti al 5 novembre 2026.</li>
+        <li>Legge 28 gennaio 1999, n. 17; D.L. 22 aprile 2023, n. 44, art. 19, c. 5-bis, convertito dalla L. 21 giugno 2023, n. 74, dalle note di aggiornamento di Normattiva. <span class="verifica">Testo della L. 17/1999 da copiare.</span></li>
+        <li>Convenzione ONU sui diritti delle persone con disabilità (2006), art. 24, ratificata con legge 3 marzo 2009, n. 18. <span class="verifica">Da confrontare con il testo ufficiale.</span></li>
+        <li>Presidenza del Consiglio dei ministri, Camera dei deputati, Senato della Repubblica, <i>Regole e raccomandazioni per la formulazione tecnica dei testi legislativi</i>, lettera circolare 20 aprile 2001. <span class="verifica">Letta su una copia non istituzionale, da confrontare con il testo ufficiale.</span></li>
+      </ul>
+    </div>
+    <div>
+      <h3>Letteratura</h3>
+      <ul>
+        <li>E. Fameli, P. Mercatali, M. Ragona, D. Tiscornia, in G. Peruginelli, M. Ragona (a cura di), <i>L'informatica giuridica in Italia</i>, ESI, 2014, §§ 10-11.</li>
+        <li>P. Mercatali, "Legimatica: definizione, classificazione, àmbiti di applicazione", in S. Faro, N. Lettieri, A. Tartaglia Polcini (a cura di), <i>Diritto e tecnologie</i>, ESI, 2011, pp. 41-52.</li>
+        <li>P. Lucisano, M.E. Piemontese, "GULPEASE: una formula per la predizione della difficoltà dei testi in lingua italiana", <i>Scuola e città</i>, 1988, n. 3. <span class="verifica">Pagine discordanti nelle fonti secondarie.</span></li>
+        <li>D. Brunato, G. Venturi, "Le tecnologie linguistico-computazionali nella misura della leggibilità di testi giuridici", <i>Informatica e diritto</i>, 2014, n. 1, pp. 111-142.</li>
+        <li>D.M. Katz, M.J. Bommarito II, "Measuring the Complexity of the Law: The United States Code", <i>Artificial Intelligence and Law</i>, 22(4), 2014, pp. 337-374, come presentato nella tesi.</li>
+        <li>A. Bolioli, P. Mercatali, F. Romano, "Formal Models for a Legislative Grammar - Explicit Text Amendment", 2004.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Documenti sul percorso dello studente</h3>
+      <ul>
+        <li>Conferenza Nazionale Universitaria dei Delegati per la Disabilità, <i>Linee guida CNUDD</i>, 25 settembre 2024.</li>
+        <li>Università degli Studi del Sannio, U.O. Diritto allo Studio, <i>Guida dei servizi a favore della disabilità e DSA</i>.</li>
+        <li>Sapienza Università di Roma, <i>Linee guida per i docenti in favore degli studenti con disabilità e con DSA</i>, gennaio 2019.</li>
+        <li>AIL, <i>FAQ Diritti e agevolazioni</i>.</li>
+        <li>Agenas, rassegna stampa sul certificato oncologico introduttivo, 13 gennaio 2022.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Tesi e materiali</h3>
+      <ul>
+        <li>A. Ninfadoro, <i>Costruire osservabili giuridici. Metodi computazionali per l'analisi empirica delle qualità e degli effetti delle norme</i>, tesi di laurea, Università degli Studi del Sannio, relatore prof. N. Lettieri, A.A. 2025/2026.</li>
+        <li>Questionario anonimo "Studiare con una malattia o una disabilità", novembre 2026: quattro risposte al 23 novembre 2026.</li>
+        <li>N. Lettieri, materiali "Costruzione di osservabili giuridici" (schema dei quattro livelli e continuum valutativo).</li>
+      </ul>
+    </div>
+  </div>
+  <p class="nota">Le sigle [F] fonte documentata, [A] adattamento, [V] da verificare e [P] proposta originale compaiono nelle schede metodologiche di ogni prototipo. <span class="verifica">In arancione</span> ciò che resta da verificare.</p>
+  </details>
+</section>
+
+<footer>
+  <p>Versione 0.2 del sito, 24 novembre 2026. La pagina del framework è disponibile anche <a href="en/index.html" lang="en">in inglese</a> (traduzione editoriale); le pagine dei prototipi sono in italiano.</p>
+</footer>
 </div>
+<script>
+(function () {
+  // Il racconto: il passo visibile accende il livello corrispondente; i precedenti restano accesi.
+  var passi = document.querySelectorAll('.passo'), scena = document.getElementById('scena');
+  if (!('IntersectionObserver' in window) || !scena) return;
+  document.documentElement.classList.add('con-scena');
+  function accendi(n) {
+    scena.setAttribute('data-passo', n);
+    passi.forEach(function (p) { p.classList.toggle('attivo', p.getAttribute('data-passo') === String(n)); });
+  }
+  var oss = new IntersectionObserver(function (voci) {
+    voci.forEach(function (v) { if (v.isIntersecting) accendi(v.target.getAttribute('data-passo')); });
+  }, { rootMargin: '-45% 0px -45% 0px' });
+  passi.forEach(function (p) { oss.observe(p); });
+  accendi(0);
+})();
+</script>
 </body>
 </html>

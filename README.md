@@ -4,7 +4,7 @@ Sito che accompagna la tesi di laurea di Antonella Ninfadoro (Università degli 
 
 Applica il framework per la costruzione computazionale degli osservabili giuridici al diritto allo studio degli studenti con malattia oncologica o con disabilità, a partire dall'art. 16 della legge 104/1992.
 
-- `index.html` · il framework
+- `index.html` · il framework (versione inglese in `en/index.html`)
 - `testo/` · primo prototipo, la disposizione
 - `relazioni/` · secondo prototipo, la rete delle norme
 - `effetti/` · terzo prototipo, il percorso dello studente (simulazione)

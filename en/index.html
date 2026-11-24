@@ -1,0 +1,340 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="icon" href="../assets/icona.svg" type="image/svg+xml">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Building legal observables · The right to education</title>
+<meta name="description" content="A framework for the computational construction of legal observables, applied to the right to education of students with cancer or with disabilities (art. 16 of Italian Law 104/1992).">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap">
+<link rel="stylesheet" href="../assets/base.css">
+<link rel="stylesheet" href="../assets/percorso.css">
+<style>
+.flusso { display: grid; grid-template-columns: 1fr 48px 1fr 48px 1fr; align-items: stretch; gap: 6px; margin: 18px 0 4px; }
+.fl { position: relative; border-radius: 12px; padding: 16px 16px 14px; display: grid; gap: 6px; align-content: start; }
+.fl b { font-size: 1.05rem; line-height: 1.3; }
+.fl span { color: var(--tenue); font-size: .95rem; line-height: 1.45; }
+.fl-n { position: absolute; top: -12px; left: 14px; width: 24px; height: 24px; border-radius: 50%; display: grid; place-items: center; font-weight: 700; font-size: .8rem !important; color: #fff !important; }
+.fl-1 { background: var(--fondo-disp); border: 1px solid var(--liv-disp); border-style: dashed; }
+.fl-1 .fl-n { background: var(--segno-disp); }
+.fl-2 { background: var(--fondo-corp); border: 1px solid var(--liv-corp); }
+.fl-2 .fl-n { background: var(--segno-corp); }
+.fl-3 { background: var(--fondo-sim); border: 1px solid var(--liv-sim); }
+.fl-3 .fl-n { background: var(--segno-sim); }
+.fl-pr { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
+.fl-pr a { font-size: .82rem; font-weight: 700; padding: 2px 10px; border-radius: 99px; background: #fff; border: 1px solid var(--liv-corp); color: var(--segno-corp); text-decoration: none; }
+.fl-pr a:hover, .fl-pr a:focus-visible { background: var(--segno-corp); color: #fff; }
+.fl-freccia { display: grid; place-items: center; }
+.fl-freccia svg { width: 44px; height: 20px; fill: none; stroke: var(--tenue); stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+.sito .storia { border-left: 4px solid var(--segno-sim); padding: 4px 0 4px 16px; margin-top: 10px; }
+@media (max-width: 720px) {
+  .flusso { grid-template-columns: 1fr; gap: 14px; }
+  .fl-freccia svg { transform: rotate(90deg); }
+}
+</style>
+</head>
+<body>
+<div class="pagina">
+
+<header class="testata">
+  <nav class="nav" aria-label="Site sections">
+    <a href="index.html" aria-current="page">The framework</a>
+    <a class="n1" href="../testo/index.html">First prototype · The provision <small>(IT)</small></a>
+    <a class="n2" href="../relazioni/index.html">Second prototype · The relations <small>(IT)</small></a>
+    <a class="n3" href="../effetti/index.html">Third prototype · The student's path <small>(IT)</small></a>
+    <a class="lingua" href="../index.html" lang="it">Italiano</a>
+  </nav>
+  <span class="etichetta">The new observables: a framework for the computational construction of legal observables</span>
+  <p class="avviso-lingua">Editorial English translation. The prototypes analyse the Italian text of the law and their pages are in Italian; Italian readability indices are not applied to translated text.</p>
+  <figure class="emblema">
+    <img src="../assets/emblema.svg" alt="Decorative illustration: tangled lines on the left, like the cross-references of a legal text, converge and open on the right into an orderly fan. It does not represent data." width="1000" height="230">
+    <figcaption><span class="e-forma">Form · the text and its relations</span><span class="e-sost">Substance · the effects on people</span></figcaption>
+  </figure>
+  <h1>Building legal observables. <span class="h1-sotto">Computational methods for the empirical analysis of the qualities and effects of legal rules</span></h1>
+  <p class="sottotitolo">An exemplary application: how computational tools can be applied to law and make invisible or barely visible aspects observable.</p>
+  <p class="nota">Master's thesis in Law · University of Sannio · academic year 2025/2026 · Antonella Ninfadoro · supervisor Prof. Nicola Lettieri</p>
+</header>
+
+<section class="inbreve sito" aria-labelledby="t-perche">
+  <h2 id="t-perche">The site</h2>
+  <p>I built this site with my supervisor, <b>Nicola Lettieri</b>, to make aspects of social reality, and of <b>legal</b> reality in particular, that are hard to bring into focus easier to see and understand.</p>
+  <p>The site visualises and explains what I defined in the theoretical part of the thesis, where I propose <b>different ways of reading the law</b>.</p>
+  <p><b>Computation</b> makes it possible to measure and analyse aspects of social phenomena that, without these tools, might remain hidden or would take a very long time to study.</p>
+
+  <div class="flusso" role="img" aria-label="Diagram: through computational tools, a barely visible phenomenon becomes a new observable. The diagram does not represent data.">
+    <div class="fl fl-1">
+      <span class="fl-n">1</span>
+      <b>A barely visible phenomenon</b>
+      <span>How much of the protection promised by the law actually reaches the student?</span>
+    </div>
+    <div class="fl-freccia" aria-hidden="true"><svg viewBox="0 0 60 24"><path d="M2 12H52" /><path d="M44 4L54 12L44 20" /></svg></div>
+    <div class="fl fl-2">
+      <span class="fl-n">2</span>
+      <b>Computational tools</b>
+      <span>analyse the text, connect the rules, simulate the path</span>
+      <span class="fl-pr"><a href="../testo/index.html">text</a><a href="../relazioni/index.html">network</a><a href="../effetti/index.html">path</a></span>
+    </div>
+    <div class="fl-freccia" aria-hidden="true"><svg viewBox="0 0 60 24"><path d="M2 12H52" /><path d="M44 4L54 12L44 20" /></svg></div>
+    <div class="fl fl-3">
+      <span class="fl-n">3</span>
+      <b>A new observable</b>
+      <span>something that can be seen, measured, compared</span>
+    </div>
+  </div>
+  <p class="nota">Theory in the chapters of the thesis, application in these pages.</p>
+
+  <p class="storia">The choice of case comes from my own story. I went through university with a haematological cancer, and I know how hard it is to assert a right while undergoing treatment. My supervisor was one of the few who gave weight to my path, with great humanity: he opened the way for me, made it easier and allowed me to take the exam remotely. This site observes exactly that gap: between the protection the law promises and what a student actually manages to obtain.</p>
+</section>
+
+<section class="inbreve" aria-labelledby="t-inbreve">
+  <span class="etichetta">In brief</span>
+  <h2 id="t-inbreve">Does the right to education actually reach a student who falls ill?</h2>
+  <p class="ib-lead">Italian Law 104/1992 grants students with disabilities <b>adapted examinations</b>: extra time, aids, equivalent tests (<b>art. 16</b>). At university these measures require an <b>agreement with the lecturer</b> (art. 16, paragraph 5). Before that, a medical <b>assessment</b>, a request to the university and a reply in time for the exam session are needed. The site observes what happens along this path to a student with a <b>motor disability</b>, with <b>haematological cancer</b> or with another form of <b>disability</b>.</p>
+  <div class="transizione" aria-label="From the particular case to the general case">
+    <span class="tr-1">Particular case<small>student with haematological cancer</small></span>
+    <span class="tr-2">Wider case<small>student with disabilities</small></span>
+    <span class="tr-3">General case<small>the right to education</small></span>
+  </div>
+  <ol class="percorso-tesi" aria-label="The chapters of the thesis">
+    <li><span class="pt-cap">Ch. I</span><b>Computational social science</b><p>Computation extends what can be observed.</p></li>
+    <li><span class="pt-cap">Ch. II</span><b>Computational legal empiricism</b><p>Law is also relations, behaviour, effects.</p></li>
+    <li><span class="pt-cap">Ch. III</span><b>The qualities of regulation</b><p>Four levels of inquiry, from beauty to justice.</p></li>
+    <li class="qui"><span class="pt-cap">Ch. IV · this site</span><b>The framework applied</b><p>Three prototypes on art. 16, to use and check.</p></li>
+  </ol>
+</section>
+
+<section class="percorso" aria-label="The framework, level by level">
+  <div class="scena" aria-hidden="true">
+    <svg id="scena" viewBox="0 0 400 420">
+      <g class="liv" data-liv="1" transform="translate(20,20)">
+        <rect class="fondo f-disp" width="170" height="170" rx="6"/>
+        <line class="tratto" x1="28" y1="42" x2="142" y2="42"/><line class="tratto lieve" x1="28" y1="62" x2="110" y2="62"/>
+        <line class="tratto" x1="40" y1="88" x2="146" y2="88"/><line class="tratto" x1="40" y1="108" x2="132" y2="108"/>
+        <line class="tratto lieve" x1="28" y1="130" x2="128" y2="130"/><line class="tratto" x1="28" y1="150" x2="100" y2="150"/>
+        <text class="num" x="150" y="160">1</text>
+      </g>
+      <g class="liv" data-liv="2" transform="translate(210,20)">
+        <rect class="fondo f-corp" width="170" height="170" rx="6"/>
+        <g class="rete">
+          <line x1="85" y1="85" x2="40" y2="50"/><line x1="85" y1="85" x2="130" y2="40"/><line x1="85" y1="85" x2="140" y2="110"/>
+          <line x1="85" y1="85" x2="45" y2="125"/><line x1="40" y1="50" x2="130" y2="40"/><line x1="45" y1="125" x2="95" y2="145"/><line x1="140" y1="110" x2="95" y2="145"/>
+          <circle cx="85" cy="85" r="11"/><circle cx="40" cy="50" r="7"/><circle cx="130" cy="40" r="7"/><circle cx="140" cy="110" r="7"/><circle cx="45" cy="125" r="7"/><circle cx="95" cy="145" r="7"/>
+        </g>
+        <text class="num" x="150" y="160">2</text>
+      </g>
+      <g class="liv" data-liv="3" transform="translate(20,230)">
+        <rect class="fondo f-eff" width="170" height="170" rx="6"/>
+        <g class="barre"><rect x="30" y="95" width="18" height="50"/><rect x="56" y="70" width="18" height="75"/><rect x="82" y="80" width="18" height="65"/><rect x="108" y="50" width="18" height="95"/></g>
+        <line class="tratto" x1="22" y1="146" x2="140" y2="146"/>
+        <text class="num" x="150" y="160">3</text>
+      </g>
+      <g class="liv" data-liv="4" transform="translate(210,230)">
+        <rect class="fondo f-sim" width="170" height="170" rx="6"/>
+        <g class="rami"><path d="M30 85 C80 85 90 40 140 40"/><path d="M30 85 L140 85"/><path d="M30 85 C80 85 90 130 140 130"/>
+          <circle cx="30" cy="85" r="8"/><circle cx="140" cy="40" r="6"/><circle cx="140" cy="85" r="6"/><circle cx="140" cy="130" r="6"/></g>
+        <text class="num" x="150" y="160">4</text>
+      </g>
+      <path class="freccia" d="M192 105 H208"/><path class="freccia" d="M295 192 C295 212 105 208 105 228"/><path class="freccia" d="M192 315 H208"/>
+    </svg>
+  </div>
+
+  <div class="passi">
+    <article class="passo" data-passo="0">
+      <span class="etichetta">The starting point</span>
+      <h2>A law promises a protection. Can we observe whether it keeps that promise?</h2>
+      <p class="tesi">The framework observes the <b>gap</b> between what the law <b>grants</b> and what people manage to <b>obtain</b>.</p>
+      <ol class="catena" aria-label="The four elements of the framework">
+        <li><b>Object</b><span>legal</span></li>
+        <li><b>Question</b><span>of knowledge</span></li>
+        <li><b>Operation</b><span>from object to data</span></li>
+        <li><b>Technique</b><span>makes a property visible</span></li>
+      </ol>
+      <details class="altro">
+        <summary>Read more</summary>
+        <p>Article 3(2) of the Italian Constitution requires the removal of obstacles that limit equality "in fact": the focus moves from the text of the rule to people's lives. The UN Convention on the Rights of Persons with Disabilities (art. 24) speaks of "effective education". The framework is not a single method. Each technique comes into play after a precise question.</p>
+      </details>
+    </article>
+
+    <article class="passo" data-passo="1">
+      <span class="etichetta l1">Level 1 · The provision</span>
+      <h2>First we read the text, with tools that count and recognise</h2>
+      <p class="tesi">The text is <b>measured</b>: readability, structure, cross-references, terminology, formal regularity.</p>
+      <div class="cifre l1">
+        <div><b>39.0</b><span>Gulpease index of art. 16 (computed on the Italian text): difficult even for readers with a secondary-school diploma</span></div>
+        <div><b>4</b><span>different ways of naming the protected person: "alunni", "allievo", "studenti handicappati", "studenti"</span></div>
+      </div>
+      <details class="altro">
+        <summary>Read more</summary>
+        <p>Sentences average 40.8 words; the longest, 75 words, is in paragraph 5-bis. Paragraph 4 uses "alunni" (pupils) even for university exams, paragraph 5 uses "studenti" (students): the terminology was reread by hand and is an interpretive judgement.</p>
+      </details>
+      <a class="vai" href="../testo/index.html">First prototype · The provision (IT) →</a>
+    </article>
+
+    <article class="passo" data-passo="2">
+      <span class="etichetta l2">Level 2 · The corpus</span>
+      <h2>Then we look at where the rule sits, in the network of other rules</h2>
+      <p class="tesi">The <b>cross-references</b> recognised in the text become the <b>edges</b> of a network.</p>
+      <div class="cifre l2">
+        <div><b>9</b><span>explicit cross-references checked on the text, among 16 provisions and acts</span></div>
+        <div><b>2</b><span>directions of the link between art. 16 and art. 13(6-bis): they refer to each other</span></div>
+      </div>
+      <details class="altro">
+        <summary>Read more</summary>
+        <p>Taking an exam with the measures of art. 16 requires other rules: the tutoring service of art. 13, the assessment of art. 4, the fast track for cancer patients. The network keeps apart 9 written cross-references, 5 amendments over time (Law 17/1999, Decree-Law 44/2023) and 4 steps of the path reconstructed by hand.</p>
+      </details>
+      <a class="vai" href="../relazioni/index.html">Second prototype · The relations (IT) →</a>
+    </article>
+
+    <article class="passo" data-passo="3">
+      <span class="etichetta l3">Level 3 · Real effects</span>
+      <h2>Then we ask who actually manages to use the protection</h2>
+      <p class="tesi">We leave the text and listen to the <b>people it addresses</b>.</p>
+      <div class="cifre l3">
+        <div><b>4 of 9</b><span>exams for which the measures arrived in time, in the questionnaires that report the number</span></div>
+        <div class="manca"><b>?</b><span>eligible students who do not request the measures: the missing figure</span></div>
+      </div>
+      <details class="altro">
+        <summary>Read more</summary>
+        <p>The first four questionnaires describe paths stalled for months, students giving up, remote lessons requested without reply. They are few cases, from people close to the author: they help build profiles and hypotheses, not estimate how often this happens. At the University of Sannio, uploading the documents "does not constitute formal activation of the procedure" (Unisannio guide, p. 7).</p>
+      </details>
+    </article>
+
+    <article class="passo" data-passo="4">
+      <span class="etichetta l4">Level 4 · Possible scenarios</span>
+      <h2>Finally we explore what cannot be observed</h2>
+      <p class="tesi"><b>Simulation</b> builds possible worlds: other rules, other timings, other information.</p>
+      <ol class="catena l4" aria-label="Steps the simulation will follow">
+        <li><b>Knowing</b><span>one's rights</span></li>
+        <li><b>Obtaining</b><span>recognition</span></li>
+        <li><b>Requesting</b><span>from the university</span></li>
+        <li><b>Agreeing</b><span>with the lecturer</span></li>
+      </ol>
+      <details class="altro">
+        <summary>Read more</summary>
+        <p>The simulation will compare typical profiles and scenarios: for example a delegated faculty member who mediates when a lecturer does not reply, or information given automatically. Results will depend on the assumptions and will be read with sensitivity analysis.</p>
+      </details>
+      <p class="nota stato-liv"><b>Under construction.</b> An illustrative experiment, not calibrated on real data.</p>
+      <a class="vai" href="../effetti/index.html">Third prototype · The student's path (IT) →</a>
+    </article>
+
+    <article class="passo" data-passo="5">
+      <span class="etichetta">From beauty to justice</span>
+      <h2>Each level incorporates the previous ones, and evaluation grows with them</h2>
+      <p class="tesi"><b>Beauty</b> and <b>justice</b> are the poles of an evaluative continuum, <b>not scores to be computed</b>.</p>
+      <div class="continuum">
+        <div class="c-poli"><b>Beauty</b><b>Justice</b></div>
+        <div class="c-barra"></div>
+        <div class="c-criteri"><span>Comprehensibility</span><span>Coherence</span><span>Accessibility</span><span>Equity</span></div>
+      </div>
+      <details class="altro">
+        <summary>Read more</summary>
+        <p>The first two levels mainly inform a judgement on formal quality; the third and fourth a judgement on effects. Data do not say that a law is just. They make observable the consequences that matter for that judgement, which remains entrusted to an explicit normative criterion.</p>
+      </details>
+    </article>
+  </div>
+</section>
+
+<section aria-labelledby="t-tre">
+  <h2 id="t-tre">What was done, what emerged</h2>
+  <div class="schede-pr">
+    <a class="spr disp" href="../testo/index.html">
+      <span class="statuto misurato">1 · the provision</span>
+      <b class="spr-n">39.0</b>
+      <p class="spr-d">Gulpease index of art. 16: difficult even for readers with a secondary-school diploma. The longest sentence, 75 words, is in paragraph 5-bis.</p>
+      <p><b>Operations:</b> paragraphs, sentences, readability, cross-references, vocabulary, 7 legislative drafting rules; arts. 3, 4 and 13 for comparison.</p>
+      <p class="spr-no">It does not say whether the rule is fair or whether it works.</p>
+    </a>
+    <a class="spr corp" href="../relazioni/index.html">
+      <span class="statuto progetto">2 · the relations</span>
+      <b class="spr-n">9 · 5 · 4</b>
+      <p class="spr-d">Written cross-references, amendments and steps of the path. Arts. 16 and 13 refer to each other; the path goes through the medical assessment.</p>
+      <p><b>Operations:</b> cross-references extracted from the text and checked by a test, Normattiva update notes, path reconstructed from documentary sources.</p>
+      <p class="spr-no">More links do not mean a worse law.</p>
+    </a>
+    <a class="spr eff" href="../effetti/index.html">
+      <span class="statuto simulato">3 · the student's path</span>
+      <b class="spr-n">4 of 9</b>
+      <p class="spr-d">Exams for which the measures arrived in time, in the first questionnaires. In all four cases the path stalled for a long time.</p>
+      <p><b>Operations:</b> steps documented with guidelines and sources, anonymous questionnaire, simulation under construction.</p>
+      <p class="spr-no">Four cases do not say how often this happens.</p>
+    </a>
+  </div>
+  <p class="nota">All prototypes are feasibility demonstrations: they show that the procedures work on the real text, not that they produce validated empirical knowledge. Computation adds tools to legal analysis without replacing it.</p>
+</section>
+
+<section aria-labelledby="t-prec">
+  <h2 id="t-prec">The first application</h2>
+  <p>The framework was first applied to the work leave of <b>art. 33</b> of the same law. That site remains available as it is: <a href="https://antonellaninfadoro.github.io/Nuovi-osservabili-giuridici-/en/index.html">Building legal observables · art. 33</a>.</p>
+</section>
+
+<section class="fonti" id="fonti" aria-labelledby="t-fonti">
+  <h2 id="t-fonti">Sources</h2>
+  <details class="altro">
+  <summary>Every figure on the site refers to one of these sources</summary>
+  <div class="fonti-gruppi">
+    <div>
+      <h3>Legal texts</h3>
+      <ul>
+        <li>Law 5 February 1992, no. 104, arts. 13 and 16, text in force from <a href="https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1992-02-05;104!vig" target="_blank" rel="noopener">Normattiva</a>, consulted on 22 November 2026; arts. 3 and 4 in force on 5 November 2026.</li>
+        <li>Law 28 January 1999, no. 17; Decree-Law 22 April 2023, no. 44, art. 19(5-bis), converted by Law 21 June 2023, no. 74, from the Normattiva update notes. <span class="verifica">Text of Law 17/1999 still to be copied.</span></li>
+        <li>UN Convention on the Rights of Persons with Disabilities (2006), art. 24, ratified by Law 3 March 2009, no. 18. <span class="verifica">To be checked against the official text.</span></li>
+        <li>Presidenza del Consiglio dei ministri, Camera dei deputati, Senato della Repubblica, <i>Regole e raccomandazioni per la formulazione tecnica dei testi legislativi</i>, circular letter of 20 April 2001. <span class="verifica">Read on a non-institutional copy, to be checked against the official text.</span></li>
+      </ul>
+    </div>
+    <div>
+      <h3>Literature</h3>
+      <ul>
+        <li>E. Fameli, P. Mercatali, M. Ragona, D. Tiscornia, in G. Peruginelli, M. Ragona (eds.), <i>L'informatica giuridica in Italia</i>, ESI, 2014, §§ 10-11.</li>
+        <li>P. Mercatali, "Legimatica: definizione, classificazione, àmbiti di applicazione", in S. Faro, N. Lettieri, A. Tartaglia Polcini (eds.), <i>Diritto e tecnologie</i>, ESI, 2011, pp. 41-52.</li>
+        <li>P. Lucisano, M.E. Piemontese, "GULPEASE: una formula per la predizione della difficoltà dei testi in lingua italiana", <i>Scuola e città</i>, 1988, n. 3. <span class="verifica">Page numbers differ across secondary sources.</span></li>
+        <li>D. Brunato, G. Venturi, "Le tecnologie linguistico-computazionali nella misura della leggibilità di testi giuridici", <i>Informatica e diritto</i>, 2014, n. 1, pp. 111-142.</li>
+        <li>D.M. Katz, M.J. Bommarito II, "Measuring the Complexity of the Law: The United States Code", <i>Artificial Intelligence and Law</i>, 22(4), 2014, pp. 337-374, as presented in the thesis.</li>
+        <li>A. Bolioli, P. Mercatali, F. Romano, "Formal Models for a Legislative Grammar - Explicit Text Amendment", 2004.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Documents on the student's path</h3>
+      <ul>
+        <li>Conferenza Nazionale Universitaria dei Delegati per la Disabilità, <i>Linee guida CNUDD</i>, 25 September 2024.</li>
+        <li>University of Sannio, U.O. Diritto allo Studio, <i>Guida dei servizi a favore della disabilità e DSA</i>.</li>
+        <li>Sapienza University of Rome, <i>Linee guida per i docenti in favore degli studenti con disabilità e con DSA</i>, January 2019.</li>
+        <li>AIL, <i>FAQ Diritti e agevolazioni</i>.</li>
+        <li>Agenas, press review on the introductory oncology certificate, 13 January 2022.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Thesis and materials</h3>
+      <ul>
+        <li>A. Ninfadoro, <i>Costruire osservabili giuridici. Metodi computazionali per l'analisi empirica delle qualità e degli effetti delle norme</i>, master's thesis, University of Sannio, supervisor Prof. N. Lettieri, academic year 2025/2026.</li>
+        <li>Anonymous questionnaire "Studiare con una malattia o una disabilità", November 2026: four responses as of 23 November 2026.</li>
+        <li>N. Lettieri, materials "Costruzione di osservabili giuridici" (four-level scheme and evaluative continuum).</li>
+      </ul>
+    </div>
+  </div>
+  <p class="nota">The labels [F] documented source, [A] adaptation, [V] to be verified and [P] original proposal appear in the methodological cards of each prototype. <span class="verifica">In orange</span>, what remains to be verified.</p>
+  </details>
+</section>
+
+<footer>
+  <p>Site version 0.2, 24 November 2026. Editorial English translation of the framework page; the prototype pages are in Italian. <a href="../index.html" lang="it">Versione italiana</a>.</p>
+</footer>
+</div>
+<script>
+(function () {
+  // Il racconto: il passo visibile accende il livello corrispondente; i precedenti restano accesi.
+  var passi = document.querySelectorAll('.passo'), scena = document.getElementById('scena');
+  if (!('IntersectionObserver' in window) || !scena) return;
+  document.documentElement.classList.add('con-scena');
+  function accendi(n) {
+    scena.setAttribute('data-passo', n);
+    passi.forEach(function (p) { p.classList.toggle('attivo', p.getAttribute('data-passo') === String(n)); });
+  }
+  var oss = new IntersectionObserver(function (voci) {
+    voci.forEach(function (v) { if (v.isIntersecting) accendi(v.target.getAttribute('data-passo')); });
+  }, { rootMargin: '-45% 0px -45% 0px' });
+  passi.forEach(function (p) { oss.observe(p); });
+  accendi(0);
+})();
+</script>
+</body>
+</html>
