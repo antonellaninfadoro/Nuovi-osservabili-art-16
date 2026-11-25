@@ -21,7 +21,7 @@ verifica('nessun arco doppio', RETE.archi.length, RETE.archi.map(function (e) { 
 
 // Rinvii estratti dal primo prototipo, tradotti nei nodi della rete
 var estratti = [];
-var a16 = leggi('l104-art16-vigente.txt'), a13 = leggi('l104-art13-vigente.txt'), a4 = leggi('l104-art4-vigente.txt');
+var a16 = leggi('l104-art16-vigente.txt'), a13 = leggi('l104-art13-vigente.txt'), a4 = leggi('l104-art4-originario.txt');
 a16.relazioni.interne.forEach(function (e) { estratti.push('16.' + e.da + '>16.' + e.a); });
 a16.relazioni.altriArticoli.forEach(function (x) { if (/articolo 13, comma 6-bis/.test(x.testo)) estratti.push('16.' + x.da + '>13.6bis'); });
 a13.commi.filter(function (c) { return c.numero === '6-bis'; })[0].rinvii.forEach(function (r) {

@@ -279,8 +279,8 @@
   /* ----- archivio degli articoli salvati, per il confronto ----- */
   var ELENCO = [
     { art: '16', nome: 'art. 16', file: 'dati/l104-art16-vigente.txt', ruolo: 'Valutazione del rendimento e prove d\'esame: l\'articolo di partenza.' },
-    { art: '3', nome: 'art. 3', file: 'dati/l104-art3-vigente.txt', ruolo: 'Soggetti aventi diritto: definisce chi è persona con disabilità ai fini della legge.' },
-    { art: '4', nome: 'art. 4', file: 'dati/l104-art4-vigente.txt', ruolo: 'Accertamento: il riconoscimento da cui dipendono le tutele dell\'art. 16.' },
+    { art: '3', nome: 'art. 3', file: 'dati/l104-art3-vigente.txt', ruolo: 'Persona con disabilità avente diritto ai sostegni: definisce chi è persona con disabilità ai fini della legge (testo modificato dal d.lgs. 62/2024).' },
+    { art: '4', nome: 'art. 4', file: 'dati/l104-art4-vigente.txt', ruolo: 'Riconoscimento della condizione di disabilità (valutazione di base dell\'INPS, testo modificato dal d.lgs. 62/2024): il passaggio da cui dipendono le tutele dell\'art. 16.' },
     { art: '13', nome: 'art. 13', file: 'dati/l104-art13-vigente.txt', ruolo: 'Integrazione scolastica: il comma 6-bis istituisce il tutorato richiamato dall\'art. 16, comma 5.' }
   ];
   var archivio = {};

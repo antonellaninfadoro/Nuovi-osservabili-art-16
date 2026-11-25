@@ -30,6 +30,9 @@
     // del testo normativo. Si tolgono per primi, per non spostare le posizioni dei commi.
     var note = 0;
     grezzo = grezzo.replace(/([.;:])\((\d+[a-z]?)\)/g, function (m, p1) { note++; return p1; });
+    // ADATTAMENTO: le note redazionali in maiuscolo dentro un comma, es. "((PERIODO SOPPRESSO DAL D.LGS ...))",
+    // segnalano una parte soppressa e non sono testo normativo: si tolgono.
+    grezzo = grezzo.replace(/\s*\(\(\s*(?:PERIODO|PERIODI|PAROLE?|LETTERA|NUMERO)\s+(?:SOPPRESS|ABROGAT)[^()]*\)\)\s*\.?/g, function () { note++; return ''; });
     while (i < grezzo.length) {
       if (grezzo.substr(i, 2) === '((') {
         if (prof === 0) inizio = testo.length;

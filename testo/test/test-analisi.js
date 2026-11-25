@@ -86,15 +86,29 @@ verifica('art. 13: rinvio di ritorno all\'art. 16', art13.relazioni.altriArticol
 verifica('sequenza commi irregolare', A.regolarita(A.analizza('Art. 1\n(X).\n1. Uno.\n3. Tre.\n')).filter(function (e) { return e.regola === '10b'; })[0].esito, 'scostamento');
 verifica('"e/o" segnalato', A.regolarita(A.analizza('Art. 1\n(X).\n1. Il padre e/o la madre.\n')).filter(function (e) { return e.regola === '4f'; })[0].esito, 'scostamento');
 
-// Art. 3 (testo inviato da Antonella il 4/11/2026), comma 2 contato a mano
-var art3 = A.analizza(fs.readFileSync(path.join(__dirname, '..', 'dati', 'l104-art3-vigente.txt'), 'utf8'));
+// Art. 3, formulazione originaria del 1992 (testo inviato da Antonella il 4/11/2026), comma 2 contato a mano
+var art3 = A.analizza(fs.readFileSync(path.join(__dirname, '..', 'dati', 'l104-art3-originario.txt'), 'utf8'));
 verifica('art. 3: rubrica e commi', [art3.rubrica, art3.commi.map(function (c) { return c.numero; }).join(',')], ['Soggetti aventi diritto', '1,2,3,4']);
 verifica('art. 3: comma 2 a mano (P, L, F)', [art3.commi[1].parole, art3.commi[1].caratteri, art3.commi[1].frasi.length], [31, 198, 1]);
 verifica('art. 3: comma 2 Gulpease 34,81', art3.commi[1].gulpease.toFixed(2), '34.81');
 verifica('art. 3: designazione "persona handicappata"', art3.terminologia.forme.map(function (f) { return f.forma + ' ' + f.n; }), ['persona handicappata 2']);
 
+// Art. 3 vigente (d.lgs. 62/2024; testo inviato da Antonella il 25/11/2026), comma 1 contato a mano:
+// 46 parole separate da spazi + 1 elisione ("all'esito") = 47; 275 lettere; 1 periodo
+var art3v = A.analizza(fs.readFileSync(path.join(__dirname, '..', 'dati', 'l104-art3-vigente.txt'), 'utf8'));
+verifica('art. 3 vigente: rubrica e commi', [art3v.rubrica, art3v.commi.map(function (c) { return c.numero; }).join(',')], ['Persona con disabilità avente diritto ai sostegni', '1,2,3,4']);
+verifica('art. 3 vigente: comma 1 a mano (P, L, F)', [art3v.commi[0].parole, art3v.commi[0].caratteri, art3v.commi[0].frasi.length], [47, 275, 1]);
+verifica('art. 3 vigente: comma 1 Gulpease 36,87', art3v.commi[0].gulpease.toFixed(2), '36.87');
+verifica('art. 3 vigente: nessuna "persona handicappata"', art3v.terminologia.forme.length, 0);
+
+// Art. 4 vigente (d.lgs. 62/2024; testo inviato da Antonella il 25/11/2026)
+var art4v = A.analizza(fs.readFileSync(path.join(__dirname, '..', 'dati', 'l104-art4-vigente.txt'), 'utf8'));
+verifica('art. 4 vigente: rubrica e 7 commi', [art4v.rubrica, art4v.commi.length], ['Riconoscimento della condizione di disabilità attraverso la valutazione di base', 7]);
+verifica('art. 4 vigente: nota "PERIODO SOPPRESSO" esclusa dal testo', /SOPPRESSO/.test(art4v.commi[1].testo || ''), false);
+verifica('art. 4 vigente: comma 1 rinvia all\'art. 3, nessun rinvio alla l. 295/1990', [art4v.relazioni.altriArticoli.map(function (x) { return x.da + '>' + x.testo; }).join(';'), art4v.relazioni.atti.map(function (x) { return x.etichetta; }).join(';')], ['1>articolo 3', 'd.lgs. 29/2024']);
+
 // Art. 4 (testo inviato da Antonella il 4/11/2026), contato a mano
-var art4 = A.analizza(fs.readFileSync(path.join(__dirname, '..', 'dati', 'l104-art4-vigente.txt'), 'utf8'));
+var art4 = A.analizza(fs.readFileSync(path.join(__dirname, '..', 'dati', 'l104-art4-originario.txt'), 'utf8'));
 verifica('art. 4: un comma, un periodo di 68 parole', [art4.commi.length, art4.totali.frasi, art4.totali.parole], [1, 1, 68]);
 verifica('art. 4: Gulpease 38,12', art4.totali.gulpease.toFixed(2), '38.12');
 verifica('art. 4: rinvii (art. 3; l. 295/1990)', [art4.relazioni.altriArticoli[0].testo, art4.relazioni.atti[0].etichetta], ['articolo 3', 'l. 295/1990']);
