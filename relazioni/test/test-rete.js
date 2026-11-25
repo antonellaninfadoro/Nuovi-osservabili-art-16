@@ -30,10 +30,15 @@ a13.commi.filter(function (c) { return c.numero === '6-bis'; })[0].rinvii.forEac
 });
 a4.relazioni.altriArticoli.forEach(function (x) { if (x.testo === 'articolo 3') estratti.push('4>3'); });
 a4.relazioni.atti.forEach(function (x) { if (x.etichetta === 'l. 295/1990') estratti.push('4>l295'); });
+var a80 = leggi('dl4-2006-art6-c3bis.txt');
+a80.relazioni.atti.forEach(function (x) {
+  if (x.etichetta === 'l. 295/1990') estratti.push('l80>l295');
+  if (x.etichetta === 'l. 104/1992' && x.rinvii.some(function (r) { return /articolo 4 della legge/.test(r.testo); })) estratti.push('l80>4');
+});
 var dichiarati = RETE.archi.filter(function (e) { return e.tipo === 'rinvio'; }).map(function (e) { return (e.da + '>' + e.a).replace(/^16\.5bis/, '16.5-bis'); });
 function norm(xs) { return xs.map(function (k) { return k.replace('16.5-bis', '16.5bis'); }).sort(); }
 verifica('archi "rinvio" = rinvii estratti dai testi (perimetro)', norm(dichiarati), norm(estratti));
-verifica('9 rinvii espliciti', dichiarati.length, 9);
+verifica('11 rinvii espliciti', dichiarati.length, 11);
 
 console.log('\n' + ok + ' superati, ' + ko + ' falliti');
 if (ko) process.exitCode = 1;

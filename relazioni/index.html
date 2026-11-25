@@ -97,8 +97,8 @@ table.t td.n, table.t th.n { text-align: right; font-variant-numeric: tabular-nu
     <dt>Fonte</dt><dd>[F] Nessi normativi espliciti: Fameli, Mercatali, Ragona, Tiscornia 2014, § 11.3.3, p. 220. [F] Riconoscimento automatico dei riferimenti come legimatica analitica: Mercatali 2011, pp. 46-47. [F] Modifiche: pannello "Aggiornamenti all'articolo" di Normattiva e testo della L. 17/1999. [P] Archi del percorso: Linee guida CNUDD 2024; Guida Unisannio ai servizi per disabilità e DSA; AIL, FAQ Diritti e agevolazioni.</dd>
     <dt>Procedura</dt><dd>I rinvii sono riconosciuti dal primo prototipo sui testi salvati e riletti a mano. Un test controlla che gli archi "rinvio" della rete coincidano con i rinvii estratti dai testi, dentro il perimetro.</dd>
     <dt>Perimetro</dt><dd>Testi vigenti al 22 novembre 2026. Restano fuori gli altri rinvii dell'art. 13 (cinque atti e l'art. 42) e quelli dell'art. 3: riguardano la scuola o altre tutele, non le misure d'esame all'università.</dd>
-    <dt>Limiti</dt><dd>La rete descrive il corpus scelto, non il sistema giuridico. Il numero di collegamenti non misura qualità né complessità della legge. Gli archi del percorso sono interpretazioni, da sottoporre al relatore. I testi della L. 17/1999, della L. 80/2006 e della L. 118/1971 sono ancora da acquisire.</dd>
-    <dt>Verifica</dt><dd>Test automatico (relazioni/test/test-rete.js): 9 rinvii dichiarati = 9 rinvii estratti; ogni arco ha tipo, stato, evidenza e fonte.</dd>
+    <dt>Limiti</dt><dd>La rete descrive il corpus scelto, non il sistema giuridico. Il numero di collegamenti non misura qualità né complessità della legge. Gli archi del percorso sono interpretazioni, da sottoporre al relatore. Il testo della L. 118/1971 è ancora da acquisire. Per l'art. 6, c. 3-bis, del D.L. 4/2006 è stato acquisito il testo introdotto dalla L. 80/2006 (in vigore dal 12 marzo 2006): la sua vigenza attuale va verificata.</dd>
+    <dt>Verifica</dt><dd>Test automatico (relazioni/test/test-rete.js): 11 rinvii dichiarati = 11 rinvii estratti dai testi degli artt. 4, 13 e 16 e dell'art. 6, c. 3-bis, D.L. 4/2006; ogni arco ha tipo, stato, evidenza e fonte.</dd>
   </dl>
   </details>
 </section>
@@ -107,7 +107,7 @@ table.t td.n, table.t th.n { text-align: right; font-variant-numeric: tabular-nu
 <script>
 (function () {
   var R = window.RETE, NS = 'http://www.w3.org/2000/svg', svg = document.getElementById('rete');
-  var NA = { 'l17': 1, 'l295': 1, 'l80': 1, 'l118': 1, 'dl44': 1, 'l74': 1 };
+  var NA = { 'l295': 1, 'l118': 1, 'dl44': 1, 'l74': 1 };
   var COL = { rinvio: '#1f5f99', modifica: '#6b4fa0', percorso: '#a06a1f' };
   var W = 190, H = 36, attivi = { rinvio: true, modifica: true, percorso: true }, scelto = null;
   function el(t, a, testo) { var e = document.createElementNS(NS, t); for (var k in a) e.setAttribute(k, a[k]); if (testo) e.textContent = testo; return e; }
