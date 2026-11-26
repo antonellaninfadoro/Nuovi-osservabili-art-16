@@ -16,3 +16,7 @@ In testa a ogni file, prima del testo, registrare:
 - data di consultazione
 
 Il testo va conservato com'è stato copiato, compresi i segni (( )) e le note di aggiornamento: le note servono al secondo prototipo per trovare le modifiche.
+- `dlgs68-2012-art9.txt`: d.lgs. 68/2012, art. 9 (esoneri), acquisito il 26 novembre 2026
+- `l118-1971-art2.txt`: l. 118/1971, art. 2 (invalidi civili), acquisito il 26 novembre 2026
+- `dm1835-2024-art5.txt`: D.M. 1835/2024, art. 5, cc. 1-2 (esami in presenza e deroghe), estratto dal PDF
+- `l18-2009-artt1-3.meta.md`: l. 18/2009, artt. 1-3 (ratifica della Convenzione ONU), solo scheda

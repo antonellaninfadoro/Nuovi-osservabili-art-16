@@ -97,7 +97,7 @@ table.t td.n, table.t th.n { text-align: right; font-variant-numeric: tabular-nu
     <dt>Fonte</dt><dd>[F] Nessi normativi espliciti: Fameli, Mercatali, Ragona, Tiscornia 2014, § 11.3.3, p. 220. [F] Riconoscimento automatico dei riferimenti come legimatica analitica: Mercatali 2011, pp. 46-47. [F] Modifiche: pannello "Aggiornamenti all'articolo" di Normattiva e testo della L. 17/1999. [P] Archi del percorso: Linee guida CNUDD 2024; Guida Unisannio ai servizi per disabilità e DSA; AIL, FAQ Diritti e agevolazioni.</dd>
     <dt>Procedura</dt><dd>I rinvii sono riconosciuti dal primo prototipo sui testi salvati e riletti a mano. Un test controlla che gli archi "rinvio" della rete coincidano con i rinvii estratti dai testi, dentro il perimetro.</dd>
     <dt>Perimetro</dt><dd>Testi vigenti al 22 novembre 2026. Restano fuori gli altri rinvii dell'art. 13 (cinque atti e l'art. 42) e quelli dell'art. 3: riguardano la scuola o altre tutele, non le misure d'esame all'università.</dd>
-    <dt>Limiti</dt><dd>La rete descrive il corpus scelto, non il sistema giuridico. Il numero di collegamenti non misura qualità né complessità della legge. Gli archi del percorso sono interpretazioni, da sottoporre al relatore. Il testo della L. 118/1971 è ancora da acquisire. Per gli artt. 3 e 4 la rete usa la formulazione del 1992, ancora applicata fuori dai territori della sperimentazione del d.lgs. 62/2024 fino al 31 dicembre 2026. Nel testo riformato l'art. 4 affida il riconoscimento all'INPS e non rinvia più alla l. 295/1990: dal 2027 l'arco 4 → l. 295/1990 andrà rivisto. L'art. 6, c. 3-bis, del D.L. 4/2006 è nel testo vigente al 25 novembre 2026, invariato dal 2006.</dd>
+    <dt>Limiti</dt><dd>La rete descrive il corpus scelto, non il sistema giuridico. Il numero di collegamenti non misura qualità né complessità della legge. Gli archi del percorso sono interpretazioni, da sottoporre al relatore. Per gli artt. 3 e 4 la rete usa la formulazione del 1992, ancora applicata fuori dai territori della sperimentazione del d.lgs. 62/2024 fino al 31 dicembre 2026. Nel testo riformato l'art. 4 affida il riconoscimento all'INPS e non rinvia più alla l. 295/1990: dal 2027 l'arco 4 → l. 295/1990 andrà rivisto. L'art. 6, c. 3-bis, del D.L. 4/2006 è nel testo vigente al 25 novembre 2026, invariato dal 2006.</dd>
     <dt>Verifica</dt><dd>Test automatico (relazioni/test/test-rete.js): 11 rinvii dichiarati = 11 rinvii estratti dai testi degli artt. 4, 13 e 16 e dell'art. 6, c. 3-bis, D.L. 4/2006; ogni arco ha tipo, stato, evidenza e fonte.</dd>
   </dl>
   </details>
@@ -107,7 +107,7 @@ table.t td.n, table.t th.n { text-align: right; font-variant-numeric: tabular-nu
 <script>
 (function () {
   var R = window.RETE, NS = 'http://www.w3.org/2000/svg', svg = document.getElementById('rete');
-  var NA = { 'l295': 1, 'l118': 1, 'dl44': 1, 'l74': 1 };
+  var NA = { 'l295': 1, 'dl44': 1, 'l74': 1 };
   var COL = { rinvio: '#1f5f99', modifica: '#6b4fa0', percorso: '#a06a1f' };
   var W = 190, H = 36, attivi = { rinvio: true, modifica: true, percorso: true }, scelto = null;
   function el(t, a, testo) { var e = document.createElementNS(NS, t); for (var k in a) e.setAttribute(k, a[k]); if (testo) e.textContent = testo; return e; }

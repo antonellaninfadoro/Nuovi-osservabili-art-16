@@ -27,7 +27,7 @@
       { id: '4', etichetta: 'art. 4 l. 104/1992', gruppo: 'perc', x: 160, y: 190, testo: 'formulazione del 1992 (commissioni della l. 295/1990), ancora applicata fuori dai territori della sperimentazione del d.lgs. 62/2024 fino al 31 dicembre 2026' },
       { id: 'l295', etichetta: 'L. 295/1990, art. 1', gruppo: 'perc', x: 160, y: 300, testo: 'non acquisito' },
       { id: 'l80', etichetta: 'D.L. 4/2006, art. 6, c. 3-bis', gruppo: 'perc', x: 160, y: 410, testo: 'comma aggiunto dalla L. 80/2006 in sede di conversione; testo acquisito (testo/dati/dl4-2006-art6-c3bis.txt)' },
-      { id: 'l118', etichetta: 'L. 118/1971', gruppo: 'perc', x: 160, y: 520, testo: 'non acquisito' }
+      { id: 'l118', etichetta: 'L. 118/1971, art. 2', gruppo: 'perc', x: 160, y: 520, testo: 'testo acquisito (testo/dati/l118-1971-art2.txt)' }
     ],
     archi: [
       { da: '16.2', a: '16.1', tipo: 'rinvio', stato: 'verificato sul testo', evidenza: '"di cui al comma 1"', fonte: 'art. 16, c. 2, testo vigente' },
