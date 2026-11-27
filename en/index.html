@@ -59,6 +59,21 @@
   .via { grid-template-columns: 1fr; gap: 4px; }
   .via i { transform: rotate(90deg); width: 1.4rem; justify-self: start; text-align: center; }
 }
+.ciclo { display: grid; grid-template-columns: repeat(4, 1fr); gap: 26px; margin: 16px 0 6px; padding: 0; list-style: none; counter-reset: c; }
+.ciclo li { border-radius: 10px; padding: 12px 14px; position: relative; }
+.ciclo li b { display: block; font-size: 1.02rem; }
+.ciclo li span { display: block; font-size: .88rem; color: var(--tenue); margin-top: 2px; }
+.ciclo li a { font-size: .82rem; font-weight: 700; }
+.ciclo .c1 { background: var(--fondo-disp); border: 1px solid var(--liv-disp); }
+.ciclo .c2 { background: var(--fondo-corp); border: 1px solid var(--liv-corp); }
+.ciclo .c3 { background: var(--fondo-eff); border: 1px solid var(--liv-eff); }
+.ciclo .c4 { background: var(--fondo-sim); border: 1px solid var(--liv-sim); }
+.ciclo li:not(:last-child)::after { content: "→"; position: absolute; right: -13px; top: 50%; transform: translate(50%, -50%); color: var(--tenue); font-weight: 700; z-index: 1; }
+.ritorno { border: 2px dashed var(--liv-sim); border-radius: 10px; padding: 8px 14px; font-weight: 700; text-align: center; }
+@media (max-width: 720px) {
+  .ciclo { grid-template-columns: 1fr; }
+  .ciclo li:not(:last-child)::after { content: "↓"; right: auto; left: 50%; top: auto; bottom: -13px; transform: translate(-50%, 50%); }
+}
 </style>
 </head>
 <body>
@@ -148,6 +163,39 @@
     <li><span class="pt-cap">Ch. III</span><b>The qualities of regulation</b><p>Four levels of inquiry, from beauty to justice.</p></li>
     <li class="qui"><span class="pt-cap">Ch. IV · this site</span><b>The framework applied</b><p>Three prototypes on art. 16, to use and check.</p></li>
   </ol>
+</section>
+
+<section class="inbreve" aria-labelledby="t-insieme">
+  <span class="etichetta">How the parts fit together</span>
+  <h2 id="t-insieme">One path: from the text of the rule to its rewriting.</h2>
+  <p class="ib-lead">All the parts answer the same question: <b>does the right promised by art. 16 reach the student?</b> Each matches one level of the framework and prepares the next.</p>
+  <ol class="ciclo" aria-label="The four parts of the work, in order">
+    <li class="c1"><b>The text</b><span>what conditions the rule sets: "subject to agreement with the lecturer"</span><a href="../testo/index.html">First prototype (IT)</a></li>
+    <li class="c2"><b>The system</b><span>which other rules it depends on: the certificate, the provisional assessment valid "solely for" work</span><a href="../relazioni/index.html">Second prototype (IT)</a></li>
+    <li class="c3"><b>The effects</b><span>where the path actually stops: lecturers, information, timing</span><a href="../effetti/index.html">Interviews and sources (IT)</a></li>
+    <li class="c4"><b>The scenarios</b><span>what would change by amending a specific rule</span><a href="../effetti/index.html#t-sim">Third prototype (IT)</a></li>
+  </ol>
+  <p class="ritorno">↺ The levers of the simulation return to the text, as proposed amendments.</p>
+  <details>
+    <summary>Why a lawyer does this, and not only public policy analysis</summary>
+    <p>INAPP, the Italian public research institute that is part of the National Statistical System, analyses, monitors and evaluates public policies. This work does something else:</p>
+    <ul>
+      <li><b>The unit of analysis is the provision, not the policy:</b> which paragraph, condition or cross-reference produces the effect.</li>
+      <li><b>The structure of the model comes from interpretation:</b> "may" or "must", "subject to agreement", "solely for" are in no database, and they are where the right gets lost.</li>
+      <li><b>The result is a proposed text:</b> each lever rewrites a specific rule. The link is with the quality of legislation (legimatics).</li>
+      <li><b>It works with little data:</b> interviews show the mechanisms, the simulation makes the assumptions explicit and points to the data to collect.</li>
+    </ul>
+    <p class="nota">INAPP: statute (art. 1) and performance reports, consulted on 27 November 2026. <span class="verifica">Relationship with regulatory impact analysis and assessment (AIR and VIR) to be explored.</span></p>
+  </details>
+  <details>
+    <summary>The model, in brief</summary>
+    <ul>
+      <li><b>What it simulates:</b> hypothetical students going through the steps derived from the rules, up to the first exam session.</li>
+      <li><b>What it measures:</b> five components of effectiveness (access, timeliness, completeness, certainty, cost) and the point where students stop.</li>
+      <li><b>What it compares:</b> today's path with four levers, each tied to a rule.</li>
+      <li><b>What it does not claim:</b> to estimate reality. It shows the consequences of stated assumptions, each with its source.</li>
+    </ul>
+  </details>
 </section>
 
 <section class="percorso" aria-label="The framework, level by level">
@@ -242,7 +290,7 @@
       </div>
       <details class="altro">
         <summary>Read more</summary>
-        <p>The first four questionnaires describe paths stalled for months, students giving up, remote lessons requested without reply. They are few cases, from people close to the author: they help build profiles and hypotheses, not estimate how often this happens. At the University of Sannio, uploading the documents "does not constitute formal activation of the procedure" (Unisannio guide, p. 7).</p>
+        <p>The first five questionnaires describe paths stalled for months, students giving up, remote lessons requested without reply. They are few cases, from people close to the author: they help build profiles and hypotheses, not estimate how often this happens. At the University of Sannio, uploading the documents "does not constitute formal activation of the procedure" (Unisannio guide, p. 7).</p>
       </details>
     </article>
 
@@ -301,9 +349,9 @@
     <a class="spr eff" href="../effetti/index.html">
       <span class="statuto simulato">3 · the student's path</span>
       <b class="spr-n">4 of 9</b>
-      <p class="spr-d">Exams for which the measures arrived in time, in the first questionnaires. In all four cases the path stalled for a long time.</p>
-      <p><b>Operations:</b> steps documented with guidelines and sources, anonymous questionnaire, simulation under construction.</p>
-      <p class="spr-no">Four cases do not say how often this happens.</p>
+      <p class="spr-d">Exams for which the measures arrived in time, in the questionnaires that report the number. In all five cases the path stalled for a long time.</p>
+      <p><b>Operations:</b> steps documented with guidelines and sources, anonymous questionnaire, simulation of scenarios with four levers.</p>
+      <p class="spr-no">Five cases do not say how often this happens.</p>
     </a>
   </div>
   <p class="nota">All prototypes are feasibility demonstrations: they show that the procedures work on the real text, not that they produce validated empirical knowledge. Computation adds tools to legal analysis without replacing it.</p>
@@ -344,6 +392,7 @@
     <div>
       <h3>Documents on the student's path</h3>
       <ul>
+        <li>INAPP, <i>Statuto</i> (in force from 2 May 2018), art. 1; <i>Relazione sulla performance</i>, performance.gov.it. Consulted on 27 November 2026.</li>
         <li>Conferenza Nazionale Universitaria dei Delegati per la Disabilità, <i>Linee guida CNUDD</i>, 25 September 2024.</li>
         <li>University of Sannio, U.O. Diritto allo Studio, <i>Guida dei servizi a favore della disabilità e DSA</i>.</li>
         <li>Sapienza University of Rome, <i>Linee guida per i docenti in favore degli studenti con disabilità e con DSA</i>, January 2019.</li>

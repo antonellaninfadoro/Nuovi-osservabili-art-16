@@ -59,6 +59,21 @@
   .via { grid-template-columns: 1fr; gap: 4px; }
   .via i { transform: rotate(90deg); width: 1.4rem; justify-self: start; text-align: center; }
 }
+.ciclo { display: grid; grid-template-columns: repeat(4, 1fr); gap: 26px; margin: 16px 0 6px; padding: 0; list-style: none; counter-reset: c; }
+.ciclo li { border-radius: 10px; padding: 12px 14px; position: relative; }
+.ciclo li b { display: block; font-size: 1.02rem; }
+.ciclo li span { display: block; font-size: .88rem; color: var(--tenue); margin-top: 2px; }
+.ciclo li a { font-size: .82rem; font-weight: 700; }
+.ciclo .c1 { background: var(--fondo-disp); border: 1px solid var(--liv-disp); }
+.ciclo .c2 { background: var(--fondo-corp); border: 1px solid var(--liv-corp); }
+.ciclo .c3 { background: var(--fondo-eff); border: 1px solid var(--liv-eff); }
+.ciclo .c4 { background: var(--fondo-sim); border: 1px solid var(--liv-sim); }
+.ciclo li:not(:last-child)::after { content: "→"; position: absolute; right: -13px; top: 50%; transform: translate(50%, -50%); color: var(--tenue); font-weight: 700; z-index: 1; }
+.ritorno { border: 2px dashed var(--liv-sim); border-radius: 10px; padding: 8px 14px; font-weight: 700; text-align: center; }
+@media (max-width: 720px) {
+  .ciclo { grid-template-columns: 1fr; }
+  .ciclo li:not(:last-child)::after { content: "↓"; right: auto; left: 50%; top: auto; bottom: -13px; transform: translate(-50%, 50%); }
+}
 </style>
 </head>
 <body>
@@ -147,6 +162,39 @@
     <li><span class="pt-cap">Cap. III</span><b>Le qualità della regolazione</b><p>Quattro livelli di indagine, dalla bellezza alla giustizia.</p></li>
     <li class="qui"><span class="pt-cap">Cap. IV · questo sito</span><b>Il framework applicato</b><p>Tre prototipi sull'art. 16, da usare e controllare.</p></li>
   </ol>
+</section>
+
+<section class="inbreve" aria-labelledby="t-insieme">
+  <span class="etichetta">Come si tengono insieme le parti</span>
+  <h2 id="t-insieme">Un solo percorso: dal testo della norma alla sua riscrittura.</h2>
+  <p class="ib-lead">Tutte le parti rispondono alla stessa domanda: <b>il diritto promesso dall'art. 16 arriva allo studente?</b> Ognuna corrisponde a un livello del framework e prepara la successiva.</p>
+  <ol class="ciclo" aria-label="Le quattro parti del lavoro, in ordine">
+    <li class="c1"><b>Il testo</b><span>quali condizioni pone la norma: "previa intesa con il docente"</span><a href="testo/index.html">Primo prototipo</a></li>
+    <li class="c2"><b>Il sistema</b><span>da quali altre norme dipende: il verbale, il provvisorio "ai soli fini" del lavoro</span><a href="relazioni/index.html">Secondo prototipo</a></li>
+    <li class="c3"><b>Gli effetti</b><span>dove il percorso si ferma davvero: docenti, informazione, tempi</span><a href="effetti/index.html">Interviste e fonti</a></li>
+    <li class="c4"><b>Gli scenari</b><span>che cosa cambierebbe toccando una norma precisa</span><a href="effetti/index.html#t-sim">Terzo prototipo</a></li>
+  </ol>
+  <p class="ritorno">↺ Le leve della simulazione tornano sul testo, come proposte di modifica.</p>
+  <details>
+    <summary>Perché lo fa un giurista, e non solo l'analisi delle politiche pubbliche</summary>
+    <p>L'INAPP, ente pubblico di ricerca che fa parte del Sistema statistico nazionale, analizza, monitora e valuta le politiche pubbliche. Questo lavoro fa un'altra cosa:</p>
+    <ul>
+      <li><b>L'unità di analisi è la disposizione, non la politica:</b> quale comma, quale condizione, quale rinvio produce l'effetto.</li>
+      <li><b>La struttura del modello viene dall'interpretazione:</b> "può" o "deve", "previa intesa", "ai soli fini" non sono in nessuna banca dati, e sono i punti in cui il diritto si perde.</li>
+      <li><b>Il risultato è una proposta di testo:</b> ogni leva è la riformulazione di una norma precisa. Il legame è con la qualità della legislazione (legimatica).</li>
+      <li><b>Funziona con pochi dati:</b> le interviste mostrano i meccanismi, la simulazione rende esplicite le ipotesi e indica quali dati raccogliere.</li>
+    </ul>
+    <p class="nota">INAPP: statuto (art. 1) e relazioni sulla performance, consultati il 27 novembre 2026. <span class="verifica">Rapporto con l'analisi e la verifica d'impatto della regolamentazione (AIR e VIR) da approfondire.</span></p>
+  </details>
+  <details>
+    <summary>Il modello, in breve</summary>
+    <ul>
+      <li><b>Che cosa simula:</b> studenti ipotetici che attraversano i passaggi ricavati dalle norme, fino al primo appello.</li>
+      <li><b>Che cosa misura:</b> cinque componenti dell'effettività (accesso, tempestività, completezza, certezza, costo) e il punto in cui gli studenti si fermano.</li>
+      <li><b>Che cosa confronta:</b> il percorso di oggi con quattro leve, ciascuna legata a una norma.</li>
+      <li><b>Che cosa non pretende:</b> di stimare la realtà. Mostra le conseguenze di ipotesi dichiarate, ciascuna con la sua fonte.</li>
+    </ul>
+  </details>
 </section>
 
 <section class="percorso" aria-label="Il framework, livello per livello">
@@ -241,7 +289,7 @@
       </div>
       <details class="altro">
         <summary>Approfondisci</summary>
-        <p>I primi quattro questionari raccontano percorsi fermi per mesi, rinunce, lezioni a distanza chieste senza risposta. Sono pochi casi, di persone vicine all'autrice: servono a costruire profili e ipotesi, non a stimare quanto spesso accade. All'Università del Sannio caricare i documenti "non costituisce formale attivazione del procedimento" (Guida Unisannio, p. 7).</p>
+        <p>I primi cinque questionari raccontano percorsi fermi per mesi, rinunce, lezioni a distanza chieste senza risposta. Sono pochi casi, di persone vicine all'autrice: servono a costruire profili e ipotesi, non a stimare quanto spesso accade. All'Università del Sannio caricare i documenti "non costituisce formale attivazione del procedimento" (Guida Unisannio, p. 7).</p>
       </details>
     </article>
 
@@ -300,9 +348,9 @@
     <a class="spr eff" href="effetti/index.html">
       <span class="statuto simulato">3 · il percorso dello studente</span>
       <b class="spr-n">4 su 9</b>
-      <p class="spr-d">Esami con le misure arrivate in tempo, nei primi questionari. In tutti i quattro casi il percorso si è fermato a lungo.</p>
-      <p><b>Operazioni:</b> fasi documentate con linee guida e fonti, questionario anonimo, simulazione in costruzione.</p>
-      <p class="spr-no">Quattro casi non dicono quanto spesso accade.</p>
+      <p class="spr-d">Esami con le misure arrivate in tempo, nei questionari che riportano il numero. In tutti e cinque i casi il percorso si è fermato a lungo.</p>
+      <p><b>Operazioni:</b> fasi documentate con linee guida e fonti, questionario anonimo, simulazione di scenari con quattro leve.</p>
+      <p class="spr-no">Cinque casi non dicono quanto spesso accade.</p>
     </a>
   </div>
   <p class="nota">Tutti i prototipi sono dimostrazioni di fattibilità: mostrano che le procedure funzionano sul testo reale, non che producono conoscenza empirica validata. La computazione aggiunge strumenti all'analisi giuridica, senza sostituirla.</p>
@@ -343,6 +391,7 @@
     <div>
       <h3>Documenti sul percorso dello studente</h3>
       <ul>
+        <li>INAPP, <i>Statuto</i> (in vigore dal 2 maggio 2018), art. 1; <i>Relazione sulla performance</i>, performance.gov.it. Consultati il 27 novembre 2026.</li>
         <li>Conferenza Nazionale Universitaria dei Delegati per la Disabilità, <i>Linee guida CNUDD</i>, 25 settembre 2024.</li>
         <li>Università degli Studi del Sannio, U.O. Diritto allo Studio, <i>Guida dei servizi a favore della disabilità e DSA</i>.</li>
         <li>Sapienza Università di Roma, <i>Linee guida per i docenti in favore degli studenti con disabilità e con DSA</i>, gennaio 2019.</li>
