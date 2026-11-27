@@ -50,13 +50,14 @@
 .via .esito { color: var(--inchiostro); font-weight: 700; }
 .via.si { background: var(--fondo-corp); border: 2px solid var(--segno-corp); }
 .via.no { background: #fff; border: 2px dashed var(--segnala); }
+.via.zero { background: #fff; border: 2px dotted var(--tenue); }
 @media (max-width: 720px) {
   .ventaglio { grid-template-columns: 1fr; }
   .vt-radice { grid-row: auto; }
   .vt-radice::after { display: none; }
   .vt-parallela { grid-column: 1; }
   .via { grid-template-columns: 1fr; gap: 4px; }
-  .via i { transform: rotate(90deg); text-align: left; }
+  .via i { transform: rotate(90deg); width: 1.4rem; justify-self: start; text-align: center; }
 }
 </style>
 </head>
@@ -133,10 +134,12 @@
 
   <h3 class="vt-tit">The focus: students with disabilities and students with haematological cancer</h3>
   <p>A student being treated for haematological cancer is protected <b>only through the disability route</b>: they must be recognised as disabled or as having a civil disability after a medical <b>assessment</b> involving INPS, the national social security institute. The sources examined contain no study protection designed for them.</p>
-  <div class="vie" aria-label="The two routes of a student with haematological cancer">
+  <div class="vie" aria-label="The three situations of a student with haematological cancer">
     <div class="via si"><b>With the certificate</b><span>Law 104 or civil disability</span><i aria-hidden="true">→</i><span class="esito">the measures of art. 16 are a right</span></div>
     <div class="via no"><b>Without the certificate</b><span>"disabling medical condition"</span><i aria-hidden="true">→</i><span class="esito">the university may take it into account, but is not obliged to</span></div>
+    <div class="via zero"><b>Without applying</b><span>does not request the assessment, for instance for fear it may weigh on an adoption</span><i aria-hidden="true">→</i><span class="esito">no certificate will come: the measures remain a concession</span></div>
   </div>
+  <p class="nota">The third situation comes from a questionnaire: a student undergoing treatment did not request the assessment because she wishes to adopt and fears that a disability status may affect it. <span class="verifica">Whether disability status actually weighs on adoption must be checked against the adoption law (Law 184/1983) and practice.</span></p>
   <p class="nota">The reform applies from 2025 in the pilot areas and throughout Italy from 1 January 2027 (Legislative Decree 62/2024, art. 40(2)). What counts is the province of residence or domicile. Rome has been a pilot area since 1 March 2026; Benevento has not. Until then, elsewhere, the 1992 wording applies: "physical, mental or sensory impairment, stable or progressive". <span class="verifica">List of provinces from INPS and the press: to be verified against the official act.</span></p>
   <p class="nota">CNUDD guidelines 2024, pp. 11 (note 8), 21-22; University of Sannio guide, pp. 6-7. The legislation too ties protection to Law 104 or civil disability: fee exemption (Legislative Decree 68/2012, art. 9(2)), exceptions to in-person exams (Ministerial Decree 1835/2024, art. 5(2)). The only rule found that speaks of illness is the fee exemption for students who <b>interrupt</b> their studies because of "serious and prolonged illness" (art. 9(4)): during that period no academic step is allowed (art. 9(6)). <span class="verifica">Other universities' regulations and regional rules not yet examined.</span></p>
   <ol class="percorso-tesi" aria-label="The chapters of the thesis">
