@@ -30,7 +30,7 @@
   var PARAMETRI = {
     pSa:            { v: 0.5,  et: '[P]', fonte: 'Nessun dato. Interviste: lo studente con disabilità motoria ha saputo del 30% di tempo in più dopo oltre 6 mesi.' },
     ritardoInfo:    { v: [30, 180], et: '[A]', fonte: 'Interviste (scoperta dopo mesi); intervallo in giorni.' },
-    pDomanda:       { v: 0.75, et: '[A]', fonte: 'Interviste: 3 dei 4 casi oncologici hanno chiesto l\'accertamento; una studentessa no, per timore per l\'adozione.' },
+    pDomanda:       { v: 0.8, et: '[A]', fonte: 'Interviste: 4 dei 5 casi oncologici hanno chiesto l\'accertamento; una studentessa no, per timore per l\'adozione.' },
     commissione:    { v: [15, 67, 121], et: '[A]', fonte: 'Minimo: 15 giorni per le patologie oncologiche (D.L. 4/2006, art. 6, c. 3-bis). Valore più probabile e massimo: tempi medi 67 e 121 giorni (Agenas 2022). Distribuzione triangolare.' },
     servizio:       { v: [3, 28], et: '[A]', fonte: 'Interviste: risposta del servizio da meno di una settimana a 4 settimane.' },
     nEsami:         { v: 3, et: '[A]', fonte: 'Interviste: 3, 4 e 2 esami con misure chieste.' },
