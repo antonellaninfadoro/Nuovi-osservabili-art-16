@@ -7,6 +7,8 @@
 <title>Terzo prototipo · Il diritto allo studio è effettivo?</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap">
 <link rel="stylesheet" href="../assets/base.css">
+<script src="simulazione.js"></script>
+<script src="vista-sim.js"></script>
 <style>
 .tubo { display: grid; gap: 10px; margin: 16px 0; }
 .tronco, .condotte > div, .foce { border: 1px solid var(--linea); border-radius: 10px; padding: 10px 14px; background: var(--fondo, #fff); }
@@ -25,6 +27,23 @@ table.fasi th, table.fasi td { text-align: left; vertical-align: top; padding: 8
 .tab { overflow-x: auto; }
 section, section > *, details > * { min-width: 0; max-width: 100%; }
 .st { font-weight: 700; white-space: nowrap; }
+.sim-ctr { display: grid; gap: 14px; border: 1px solid var(--linea); border-radius: 10px; padding: 14px; background: var(--fondo-sim); margin: 12px 0; }
+.sim-ctr fieldset { border: 0; padding: 0; margin: 0; display: grid; gap: 6px; }
+.sim-ctr legend { font-weight: 700; margin-bottom: 4px; }
+.sim-ctr label { display: flex; gap: 8px; align-items: flex-start; }
+.sim-ctr label small { display: block; color: var(--tenue); }
+.sim-ctr input[type=range] { width: 100%; max-width: 360px; }
+.sim-avviso { border-left: 5px solid var(--segno-sim); background: var(--fondo-sim); padding: 8px 12px; border-radius: 6px; font-weight: 600; }
+table.sim-tab { width: 100%; border-collapse: collapse; font-size: 0.92rem; margin: 8px 0 14px; }
+table.sim-tab th, table.sim-tab td { text-align: left; vertical-align: middle; padding: 8px 6px; border-bottom: 1px solid var(--linea); }
+table.sim-tab thead th { font-size: 0.82rem; color: var(--tenue); }
+table.sim-tab th small { display: block; font-weight: 400; color: var(--tenue); }
+.sb { display: inline-block; width: 110px; height: 12px; background: var(--neutro); border-radius: 6px; overflow: hidden; vertical-align: middle; margin-right: 8px; }
+.sb > span { display: block; height: 100%; }
+.sb.base > span { background: var(--tenue); }
+.sb.scen > span { background: var(--segno-sim); }
+.sv { font-weight: 700; white-space: nowrap; }
+@media (max-width: 600px) { .sb { width: 60px; } table.sim-tab { font-size: 0.85rem; } }
 </style>
 </head>
 <body>
@@ -127,9 +146,68 @@ section, section > *, details > * { min-width: 0; max-width: 100%; }
   <details>
     <summary>Limiti</summary>
     <ul>
-      <li>I tempi e le probabilità della simulazione saranno ipotesi esplicite, ricavate come intervalli dalle interviste e dalle fonti. L'esperimento è illustrativo, non calibrato né validato.</li>
+      <li>I tempi e le probabilità della simulazione sono ipotesi esplicite, ricavate come intervalli dalle interviste e dalle fonti. L'esperimento è illustrativo, non calibrato né validato.</li>
       <li>Le fasi descrivono un ateneo, il Sannio. Altri atenei possono organizzare il percorso in modo diverso.</li>
       <li>Le notizie di stampa sul certificato oncologico riportano esiti di sperimentazioni locali, non dati nazionali.</li>
+    </ul>
+  </details>
+</section>
+
+<section aria-labelledby="t-sim">
+  <span class="statuto simulato">Esperimento illustrativo · prima versione</span>
+  <h2 id="t-sim">Dove si perde il diritto, e quale leva lo fa arrivare.</h2>
+  <p class="tesi">2.000 studenti ipotetici attraversano il percorso fino al primo appello. Si confronta il percorso di oggi con quattro <b>leve</b>, ciascuna legata a una norma.</p>
+  <p class="sim-avviso">I numeri nascono da ipotesi esplicite e da 4 interviste, non da dati reali. Servono a confrontare scenari, non a misurare quanti studenti perdono il diritto.</p>
+
+  <div class="sim-ctr" id="sim-controlli">
+    <fieldset>
+      <legend>Chi</legend>
+      <label><input type="radio" name="sim-profilo" value="nuova" checked> <span>Nuova diagnosi, senza verbale</span></label>
+      <label><input type="radio" name="sim-profilo" value="verbale"> <span>Con il verbale già riconosciuto</span></label>
+      <small id="sim-profilo-d" class="nota"></small>
+    </fieldset>
+    <fieldset>
+      <legend>Quando è il primo appello: <span id="sim-appello-v"></span> dopo la diagnosi o l'iscrizione</legend>
+      <input type="range" id="sim-appello" min="30" max="180" step="15" value="60" aria-label="Giorni al primo appello">
+    </fieldset>
+    <fieldset>
+      <legend>Le leve</legend>
+      <label><input type="checkbox" id="sim-leva-A"> <span><b>A. Il provvisorio vale anche per lo studio</b><small>dopo 45 giorni senza verbale, l'accertamento provvisorio (D.L. 324/1993, art. 2) vale anche per l'art. 16</small></span></label>
+      <label><input type="checkbox" id="sim-leva-B"> <span><b>B. Un termine per il docente</b><small>se non risponde entro 14 giorni, decide il docente delegato del rettore (art. 16, c. 5-bis)</small></span></label>
+      <label><input type="checkbox" id="sim-leva-C"> <span><b>C. Informazione d'ufficio</b><small>all'iscrizione o alla diagnosi: tutele, tempi, e che il verbale non ostacola l'adozione</small></span></label>
+      <label><input type="checkbox" id="sim-leva-D"> <span><b>D. Una via senza verbale</b><small>un regolamento di ateneo rende dovute le misure per la condizione medica documentata</small></span></label>
+    </fieldset>
+  </div>
+
+  <h3>Le cinque componenti</h3>
+  <div class="tab" id="sim-comp" aria-live="polite"></div>
+  <h3>Dove si perde</h3>
+  <p id="sim-frase"></p>
+  <div class="tab" id="sim-imbuto"></div>
+  <p class="nota">Grafici di risultati simulati. Barre grigie: il percorso di oggi. Barre colorate: con le leve scelte. Gli stessi studenti ipotetici attraversano i due scenari.</p>
+  <p class="nota">Una leva può migliorare una componente e peggiorarne un'altra. Con la leva C, per esempio, più studenti chiedono l'accertamento invece di restare sulla via discrezionale: l'accesso cresce, ma per il primo appello il verbale può arrivare tardi.</p>
+
+  <details>
+    <summary>Come è calcolato</summary>
+    <ul>
+      <li><b>Domanda:</b> in quale passaggio il diritto dell'art. 16 si perde, e quanto cambierebbe con ciascuna leva?</li>
+      <li><b>Unità di analisi:</b> lo studente ipotetico e i suoi esami del primo appello (3 esami).</li>
+      <li><b>Percorso simulato:</b> sapere delle tutele → titolo valido (verbale, accertamento provvisorio con la leva A, oppure concessione dell'ateneo senza verbale) → il servizio inoltra le misure → ogni docente risponde, oppure no. Con la leva B, se il docente non risponde decide il delegato. Chi non chiede l'accertamento resta sulla via della condizione medica, a discrezione dell'ateneo (con la leva D, dovuta).</li>
+      <li><b>Le cinque componenti:</b> accesso = almeno una misura entro 365 giorni; tempestività = esami con misure decise entro l'appello; completezza = misure concesse per intero sul totale delle concesse; certezza = esami con decisione nota almeno 7 giorni prima; costo = giorni medi dal bisogno alla prima misura.</li>
+      <li><b>Procedura:</b> simulazione Monte Carlo, 2.000 studenti, seme fisso (stessi parametri, stessi risultati). Numeri casuali comuni: ogni studente estrae gli stessi numeri in tutti gli scenari, quindi le differenze dipendono solo dalle leve.</li>
+      <li><b>Codice:</b> <code>effetti/simulazione.js</code> (modello) e <code>effetti/vista-sim.js</code> (pagina); test in <code>effetti/test/test-sim.js</code>.</li>
+    </ul>
+    <div class="tab"><table class="fasi"><thead><tr><th>Parametro</th><th>Valore</th><th>Statuto</th><th>Provenienza</th></tr></thead><tbody id="sim-parametri"></tbody></table></div>
+  </details>
+
+  <details>
+    <summary>Verifica e limiti</summary>
+    <ul>
+      <li><b>Verifica del codice:</b> con probabilità pari a 1 e tempi nulli tutti gli studenti ottengono le misure in tempo; se nessun docente risponde nessuno le ottiene, salvo con la leva B; l'imbuto non cresce mai da una tappa alla successiva; nessuna leva, da sola, riduce l'accesso; la leva A non cambia nulla per chi ha già il verbale; stesso seme, stessi risultati (45 test automatici).</li>
+      <li><b>Controllo di plausibilità, non calibrazione:</b> nelle interviste le misure sono arrivate in tempo per 4 esami su 9. Il modello, con il verbale già riconosciuto e l'appello a 45 giorni, dà <span id="sim-controllo"></span>. I parametri non sono stati aggiustati per avvicinare i due valori.</li>
+      <li><b>Molti valori sono proposte [P]:</b> nessun dato dice quanti studenti conoscono le tutele o quanti docenti rispondono. Cambiandoli cambiano i numeri; l'esperimento mostra la logica delle leve, non la loro forza reale.</li>
+      <li><b>Fuori dal modello:</b> appelli successivi, lezioni, borse e tasse; le differenze fra atenei e province; le misure parziali chieste di nuovo; il carico emotivo del percorso.</li>
+      <li>Le leve sono proposte di questo lavoro. Andranno discusse con il relatore prima di presentarle come risultati.</li>
     </ul>
   </details>
 </section>
